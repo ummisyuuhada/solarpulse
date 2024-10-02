@@ -37,7 +37,9 @@ export class ThirdSectionComponent implements AfterViewInit {
 
     const backgroundImg = document.querySelectorAll(".tab-image");
     const thirdSectionImages = document.querySelectorAll(".tab-overlay");
+    const textSections = document.querySelectorAll(".content-section");
 
+    // Function
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         entry.target.classList.toggle("show", entry.isIntersecting)
@@ -47,6 +49,7 @@ export class ThirdSectionComponent implements AfterViewInit {
       })
     },{threshold:0.5})
 
+    // Functions Usage
     backgroundImg.forEach(backgroundImg => {
       observer.observe(backgroundImg);
     })
@@ -55,9 +58,13 @@ export class ThirdSectionComponent implements AfterViewInit {
       const img = thirdSectionImage as HTMLElement;
       observer.observe(img);  
 
-      const delay = 0.4 + (index%2) *0.5;
+      const delay = 0.4 + (index%2) *0.3;
 
       img.style.transitionDelay = `${delay}s`;
+    })
+
+    textSections.forEach(textSection=>{
+      observer.observe(textSection);
     })
 
   }
