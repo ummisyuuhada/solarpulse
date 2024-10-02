@@ -34,5 +34,31 @@ export class ThirdSectionComponent implements AfterViewInit {
         }
       });
     });
+
+    const backgroundImg = document.querySelectorAll(".tab-image");
+    const thirdSectionImages = document.querySelectorAll(".tab-overlay");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle("show", entry.isIntersecting)
+        if(entry.isIntersecting){
+          observer.unobserve(entry.target)
+        }
+      })
+    },{threshold:0.5})
+
+    backgroundImg.forEach(backgroundImg => {
+      observer.observe(backgroundImg);
+    })
+
+    thirdSectionImages.forEach((thirdSectionImage, index) => {
+      const img = thirdSectionImage as HTMLElement;
+      observer.observe(img);  
+
+      const delay = 0.4 + (index%2) *0.5;
+
+      img.style.transitionDelay = `${delay}s`;
+    })
+
   }
 }
