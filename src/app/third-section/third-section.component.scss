@@ -1,6 +1,6 @@
 .container {
   overflow-x: hidden;
-  width: 400vw; /* 100vw per panel * 4 panels */
+  width: 400vw; 
   height: 100vh;
   display: flex;
   flex-wrap: nowrap;
@@ -8,70 +8,70 @@
 }
 
 .panel {
-  width: 100vw; /* Each panel takes full viewport width */
-  height: 100vh; /* Each panel takes full viewport height */
+  width: 100vw; 
+  height: 100vh; 
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align content to the left */
-  position: relative; /* Ensure positioning context for background */
+  justify-content: flex-start;
+  position: relative;
 }
 
 .background-image1 {
-  background-image: url('/assets/thirdBackground-1.png'); /* Adjusted path */
-  background-size: cover; /* Cover the entire panel */
-  background-position: center; /* Center the background */
+  background-image: url('/assets/thirdBackground-1.png');
+  background-size: cover; 
+  background-position: center; 
 }
 
 .background-image2 {
-  background-image: url('/assets/thirdBackground-2.png'); /* Adjusted path */
-  background-size: cover; /* Cover the entire panel */
-  background-position: center; /* Center the background */
+  background-image: url('/assets/thirdBackground-2.png');
+  background-size: cover; 
+  background-position: center;
 }
 
 .image-section {
-  position: relative; /* Use relative positioning for stacking */
-  width: 54%; /* Set width to 60% */
-  height: auto; /* Adjust height as needed */
+  position: relative; 
+  width: 54%;
+  height: auto;
   margin-left: 100px;
 }
 
 .tab-image {
-  width: 100%; /* Adjust width as needed */
-  max-width: 100%; /* Ensure it takes the full width of the image section */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%; 
+  max-width: 100%; 
+  height: auto; 
   display: block;
 }
 
 .tab-overlay {
-  position: absolute; /* Position it absolutely within the image section */
-  top: 0; /* Align to the top */
-  left: 0; /* Align to the left */
-  width: 100%; /* Adjust width as needed */
-  height: auto; /* Maintain aspect ratio */
-  z-index: 2; /* Ensure it's above the background image */
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: auto; 
+  z-index: 2; 
 }
 
 .tab-overlay:nth-of-type(1) {
-  top: 0; /* Position Tab 1 B at the top */
+  top: 0; 
 }
 
 .tab-overlay:nth-of-type(2) {
-  top: 0; /* Position Tab 1 A directly below Tab 1 B */
+  top: 0;
 }
 
 .content-section {
-  width: 50%; /* Set width to 40% */
-  margin-left: 100px; /* Space between the image section and content section */
+  width: 50%;
+  margin-left: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center align vertically */
+  justify-content: center;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   letter-spacing: 0.15rem;
 }
 
 .content-section h1 {
-  position: relative; /* Ensure it moves with the content */
-  font-size: 300%; /* Font size for the heading */
+  position: relative;
+  font-size: 300%;
   font-weight: 600;
   
 }

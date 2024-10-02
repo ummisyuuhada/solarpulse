@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ThirdSectionComponent } from './third-section.component';
 
 describe('ThirdSectionComponent', () => {
