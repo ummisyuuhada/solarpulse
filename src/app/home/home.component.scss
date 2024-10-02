@@ -22,10 +22,7 @@ $font-weight : 500;
     // flex-direction: column;
     padding: 0;
     margin: 0;
-    left: 0px;
     position: relative;
-    top: -7em;
-    left: 0;
 }
 
 .hero-container {
@@ -35,14 +32,14 @@ $font-weight : 500;
     flex-direction: column;
 }
 
-.background-image {
-    display: none;
-    width: 100%;
-    height: calc(100% + 4px);
-    top: 0;
-    left: 0;
-    position: relative;
-}
+// .background-image {
+//     display: none;
+//     width: 100%;
+//     height: calc(100% + 4px);
+//     top: 0;
+//     left: 0;
+//     position: relative;
+// }
 
 // .backgroundImg-container {
 //     // width: 100%;

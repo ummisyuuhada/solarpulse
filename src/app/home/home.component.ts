@@ -11,6 +11,8 @@ import { HeaderComponent } from "../header/header.component";
 export class HomeComponent implements AfterViewInit{
 
   ngAfterViewInit(): void {
+    // ensure it only runs in browser environment
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
     const texts = document.querySelectorAll(".text-section")
     const image1 = document.querySelector(".image1")
     const image2 = document.querySelectorAll(".image2")
@@ -44,4 +46,4 @@ export class HomeComponent implements AfterViewInit{
     // },{threshold:0.5})
     }
   }
-
+}
