@@ -1,0 +1,29 @@
+
+
+
+.sub-section.container{
+    gap: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sub-section{
+    flex: 1;
+    // padding: 3% 10% 3% 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .image-container{
+        height: 26em;
+        img{
+            height: 100%;
+            width: auto;
+        }
+    }
+    
+}
+
+.info-section{
+    display: flex;
+}
