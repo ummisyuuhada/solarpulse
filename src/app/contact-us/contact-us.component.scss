@@ -1,0 +1,306 @@
+// .contact-container {
+//     background-color: #242424;
+//     height: 100vh;
+//     width: 100%;
+//     position: relative;
+// }
+
+// .yellow-rectangle {
+//     background-color: #faa61a;
+//     position: absolute;
+//     top: 0%;
+//     width: 100%;
+//     height: 60%;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+// .contact-text {
+//     text-align: center;
+//     color: #333;
+//     margin-bottom: 20px;
+
+//     h1 {
+//         font-size: 3rem;
+//         margin-bottom: 10px;
+//         width: 60%;
+//         margin-left: auto;
+//         margin-right: auto;
+//     }
+
+//     p {
+//         font-size: 2rem;
+//     }
+// }
+
+// .contact-email-bar {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background-color: #d9d9d9;
+//     border-radius: 70px;
+//     width: 50%;
+//     height: 20%;
+// }
+
+// .contact-input {
+//     flex: 1;
+//     padding: 10px 20px;
+//     border: none;
+//     border-radius: 70px;
+//     outline: none;
+//     font-size: 1.5rem;
+//     background-color: #d9d9d9; 
+//     color: black;
+// }
+
+// .contact-send-btn {
+//     height: 100%;
+//     width: 25%;
+//     background-color: #007bff;
+//     color: white;
+//     border: none;
+//     border-radius: 70px;
+//     padding: 10px 20px;
+//     margin-left: 10px;
+//     cursor: pointer;
+//     font-size: 1.5rem;
+// }
+
+// .contact-send-btn:hover {
+//     background-color: #0056b3;
+// }
+
+// .logo-container {
+//     position: absolute;
+//     top: 65%;
+//     left: 5%;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+// }
+
+// .contact-logo {
+//     width: 100%; 
+//     height: auto; 
+// }
+
+// .copyright {
+//     font-size: 1rem;
+//     color: white;
+//     margin-top: 70px; 
+//     margin-left: 20px;
+// }
+
+// .info-container {
+//     position: absolute;
+//     top: 65%;
+//     right: 5%; 
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-end; 
+//     color: white; 
+//     text-align: right;
+// }
+
+// .info-container h3 {
+//     font-size: 1rem; 
+//     margin-bottom: 10px; 
+// }
+
+// .info-container p {
+//     font-size: 1.5rem; 
+//     margin: 5px 0; 
+// }
+
+// .social-icons {
+//     display: flex;
+//     align-items: center;
+//     margin-top: 10px;
+
+//     .social-icon {
+//         width: 30px; 
+//         height: auto;
+//         margin-left: 10px; 
+//         cursor: pointer;
+
+//         &:hover {
+//             opacity: 0.7; 
+//         }
+//     }
+
+//     .social-icon:first-child {
+//         margin-left: 0; 
+//     }
+// }
+
+// .legal-links {
+//     display: flex;
+//     justify-content: center; /* Centers the links */
+//     margin-top: 40px;
+
+//     .legal-link {
+//         color: white; /* Set link color */
+//         text-decoration: none; /* Remove underline */
+//         margin: 0 5px; /* Spacing between links */
+//         font-size: 0.9rem;
+
+//         &:hover {
+//             text-decoration: underline; /* Underline on hover */
+//         }
+//     }
+
+//     span {
+//         color: white; /* Color for the separator */
+//         margin: 0 5px; /* Spacing between the separator and links */
+//     }
+// }
+
+
+.contact-container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.yellow-rectangle {
+    background-color: #faa61a;
+    color: #242424;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gray-rectangle {
+    background-color: #242424;
+    position: absolute;
+    top: 60%; 
+    width: 100%;
+    height: 40%; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 5%; 
+    box-sizing: border-box; 
+}
+
+.contact-email-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0; 
+    border-radius: 70px;
+    width: 50%; 
+    height: 20%;
+   
+}
+
+.contact-input {
+    flex: 1; 
+    padding: 12px 18px; 
+    border: none;
+    border-radius: 70px; 
+    outline: none;
+    font-size: 1.2rem; 
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.contact-send-btn {
+    height: 100%; 
+    width: 25%; 
+    background-color: #0084ff;
+    color: white;
+    border: none;
+    border-radius: 70px;
+    
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1.2rem; 
+    transition: background-color 0.3s ease; 
+}
+
+.contact-send-btn:hover {
+    background-color: #0279e9; 
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .contact-logo {
+        width: 100%; 
+        height: auto;
+    }
+
+    .copyright {
+        font-size: 1rem;
+        color: white;
+        margin-top: 10px;
+    }
+}
+
+/* Adjusted Info Container Styles */
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: white;
+    text-align: right;
+
+    h3 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .social-icons {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+
+        .social-icon {
+            width: 30px;
+            height: auto;
+            margin-left: 10px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        .social-icon:first-child {
+            margin-left: 0;
+        }
+    }
+
+    .legal-links {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        .legal-link {
+            color: white;
+            text-decoration: none;
+            margin: 0 5px;
+            font-size: 0.9rem;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        span {
+            color: white;
+            margin: 0 5px;
+        }
+    }
+}
