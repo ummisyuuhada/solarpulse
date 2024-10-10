@@ -13,12 +13,12 @@ export class AboutUsComponent implements AfterViewInit {
 
 
   ngAfterViewInit(): void {
-    const textsTransition = gsap.utils.toArray('.text-container:nth-child(n+2)') as HTMLElement[];
+    const textsTransition = gsap.utils.toArray('.about-text-container:nth-child(n+2)') as HTMLElement[];
     const images = gsap.utils.toArray('.about-image') as HTMLElement[];
 
     ScrollTrigger.create({
-      trigger: '.trigger',
-      pin: '.image-container', // Pin the image section
+      trigger: '.about-trigger',
+      pin: '.about-image-container', // Pin the image section
       start: 'top top',
       end: 'bottom bottom',
       endTrigger: '.about-container',
@@ -27,7 +27,7 @@ export class AboutUsComponent implements AfterViewInit {
       markers: true
     });
 
-    // gsap.to(".image-container",{
+    // gsap.to(".about-image-container",{
     // let tl = gsap.timeline({
 
     images.forEach((image, i) => {
@@ -39,7 +39,7 @@ export class AboutUsComponent implements AfterViewInit {
         opacity: 0,
         duration: 0.5,
         scrollTrigger: {
-          trigger: ".text-container:nth-child(n+2)",
+          trigger: ".about-text-container:nth-child(n+2)",
           start: 'top +=50%',
           toggleActions: 'play none none reverse',
           markers: false
@@ -51,7 +51,7 @@ export class AboutUsComponent implements AfterViewInit {
         opacity: 1,
         duration: 0.5,
         scrollTrigger: {
-          trigger: ".text-container:nth-child(n+2)",
+          trigger: ".about-text-container:nth-child(n+2)",
           start: 'top +=50%',
           toggleActions: 'play none none reverse',
           markers: false
@@ -61,9 +61,9 @@ export class AboutUsComponent implements AfterViewInit {
 
     gsap.set(textsTransition,{opacity: 0});
 
-   gsap.to(".text-container:nth-child(n+2)",{
+   gsap.to(".about-text-container:nth-child(n+2)",{
         scrollTrigger: {
-          trigger: ".text-container:nth-child(n+2)",
+          trigger: ".about-text-container:nth-child(n+2)",
           start: `top +=55%`,
           end: `bottom bottom`,
           scrub: true,

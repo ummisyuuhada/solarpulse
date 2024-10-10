@@ -3,11 +3,20 @@
 }
 
 .sub-section-container {
-    gap: 5%;
+    // gap: 5%;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // width: 100%;
+    // height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    // justify-content: center;
+    position: relative;
+    height: 100%;
+    width: auto;
+  
 }
 
 .sub-section {
@@ -18,7 +27,7 @@
     align-items: center;
     width: 60%;
     gap: 2em;
-    margin: 12% 15% 17% 15%;
+    margin: 15% 15% 20% 15%;
 
     .image-container {
         // height: 26em;
@@ -49,5 +58,19 @@
     p{
         font-weight: 200;
     }
+}
+
+.fourth-section-title{
+    position: absolute;
+    width: 100%;
+    h1{
+        font-weight: 500;
+       font-size: 300%; 
+       margin: 7% 0 0 20%;
+    }
+}
+
+span{
+    color: orange;
 }
 

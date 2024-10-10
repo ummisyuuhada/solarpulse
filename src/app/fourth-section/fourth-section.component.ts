@@ -31,13 +31,25 @@ export class FourthSectionComponent implements AfterViewInit {
       start: "top top",
       end: "bottom bottom",
       scrub: true,
-      // markers: true
+      markers: true
+    })
+
+    gsap.set(".fourth-section-title",{opacity:0})
+    gsap.to(".fourth-section-title", {
+      scrollTrigger: {
+        trigger: ".trigger",
+        start: "top +=60%",
+        end: "top top",
+        scrub: true,
+        markers: true
+      },
+      opacity: 1
     })
 
     let images = gsap.utils.toArray(".image-container") as HTMLElement[];
     let texts = gsap.utils.toArray(".info-section") as HTMLElement[];
-    gsap.set(images, { opacity: 0 , y: 50});
-    gsap.set(texts, { opacity: 0, y: 50});
+    gsap.set(images, { opacity: 0, y: 50 });
+    gsap.set(texts, { opacity: 0, y: 50 });
 
     images.forEach((image, i) => {
       let tl = gsap.timeline({
@@ -50,9 +62,9 @@ export class FourthSectionComponent implements AfterViewInit {
         }
       });
 
-      tl.to(image, { opacity: 1, y:0},"+=0")
-        .to(texts[i], { opacity: 1, y: 0}, "+=0")
-        .to([image, texts[i]], { opacity: 0 , y: -50}, "+=1")
+      tl.to(image, { opacity: 1, y: 0 }, "+=0")
+        .to(texts[i], { opacity: 1, y: 0 }, "+=0")
+        .to([image, texts[i]], { opacity: 0, y: -50 }, "+=1")
     });
 
     // texts.forEach((text, i) => {
