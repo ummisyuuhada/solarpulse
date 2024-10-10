@@ -15,7 +15,7 @@ import { filter } from 'rxjs/operators';
 export class HeaderComponent {
 
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
@@ -23,7 +23,7 @@ export class HeaderComponent {
     // window.addEventListener('scroll', this.toggleShowClass);
   }
 
-  setupScrollListener(){
+  setupScrollListener() {
     const header = document.querySelector('.black-header');
     window.addEventListener('scroll', () => {
       const scrollPosition = window.scrollY || document.documentElement.scrollTop;
@@ -36,42 +36,52 @@ export class HeaderComponent {
   }
 
 
-  scrollToSection(sectionId: string) {
-    const currentUrl = this.router.url;
-
-    // Check if we're on the index page
-    if (currentUrl === '/') {
-      this.scrollToTarget(sectionId);  // If on the index, scroll smoothly
-    } else {
-      // If not on the index, navigate to the index and scroll after navigation
-      this.router.navigate(['/']).then(() => {
-        setTimeout(() => {
-          this.scrollToTarget(sectionId);  // Wait a bit to let navigation finish, then scroll
-        }, 500);
-      });
-    }
-  }
-
   // scrollToSection(sectionId: string) {
   //   const currentUrl = this.router.url;
 
-  //   // Check if the user is coming from the Terms or Privacy Policy pages
-  //   const isFromTermsOrPrivacy = currentUrl.includes('terms') || currentUrl.includes('privacy-policy');
-
-  //   if (isFromTermsOrPrivacy) {
-  //     // Full-page navigation to the index page
-  //     window.location.href = `/#${sectionId}`; // Redirect to the index page and scroll to the section
-  //   } else if (currentUrl === '/') {
-  //     this.scrollToTarget(sectionId); // If on the index, scroll smoothly
+  //   // Check if we're on the index page
+  //   if (currentUrl === '/') {
+  //     this.scrollToTarget(sectionId);  // If on the index, scroll smoothly
   //   } else {
   //     // If not on the index, navigate to the index and scroll after navigation
   //     this.router.navigate(['/']).then(() => {
   //       setTimeout(() => {
-  //         this.scrollToTarget(sectionId); // Wait a bit to let navigation finish, then scroll
+  //         this.scrollToTarget(sectionId);  // Wait a bit to let navigation finish, then scroll
   //       }, 500);
   //     });
   //   }
   // }
+
+  scrollToSection(sectionId: string) {
+    const currentUrl = this.router.url;
+
+    // Check if the user is coming from the Terms or Privacy Policy pages
+    const isFromTermsOrPrivacy = currentUrl.includes('terms') || currentUrl.includes('privacy-policy');
+    const isOnIndexPage = currentUrl === '/';
+
+    if (!isOnIndexPage || isFromTermsOrPrivacy) {
+      // Navigate to index page and scroll without modifying URL
+    this.router.navigate(['/']).then(() => {
+      setTimeout(() => {
+        this.scrollToTarget(sectionId); // Perform smooth scroll to the target section
+      }, 700); // Wait for the page to fully load
+    });
+      // window.location.href = `/#${sectionId}`; // Redirect to the index page and scroll to the section
+    }
+    else if (currentUrl === '/') {
+      this.scrollToTarget(sectionId); // If on the index, scroll smoothly
+    }
+
+
+    // else {
+    //   // If not on the index, navigate to the index and scroll after navigation
+    //   this.router.navigate(['/']).then(() => {
+    //     setTimeout(() => {
+    //       this.scrollToTarget(sectionId); // Wait a bit to let navigation finish, then scroll
+    //     }, 500);
+    //   });
+    // }
+  }
 
   scrollToTarget(sectionId: string) {
     const section = document.getElementById(sectionId);
@@ -81,7 +91,7 @@ export class HeaderComponent {
   }
 }
 
- 
+
 // toggleShowClass() {
 //   const header = document.querySelector(".black-header");
 
