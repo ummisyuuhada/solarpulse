@@ -53,53 +53,52 @@
 
 .terms-rectangle {
   background-color: #242424;
-  width: 100%;
-  height: 40vh;
+  height: 40vh; 
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 3%;
-  padding-top: 2%;
 }
 
+// Left side (Logo + copyright)
 .logo-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
   .contact-logo {
-      width: 100%;
+      width: 100%; 
       height: auto;
   }
 
   .copyright {
       font-size: 1rem;
       color: white;
-      margin-top: 7.9rem;
+      margin-top: 8rem;
   }
-
 }
 
+// Right side (Info + social icons)
 .info-container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   color: white;
   text-align: right;
-  padding-right: 7%;
   
 
+  
   h3 {
       font-size: 1.2rem;
-      
+      line-height: 1.4;
       font-weight: 500;
-      margin-bottom: 10px;
+      margin-bottom: 10px; 
   }
 
   .social-icons {
       display: flex;
       align-items: center;
-      margin: 2rem 0 0.2rem 0;
+      margin: 2rem 0 0.2rem 0; 
 
       .social-icon {
           width: 30px;

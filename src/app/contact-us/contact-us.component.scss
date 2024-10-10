@@ -1,176 +1,3 @@
-// .contact-container {
-//     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-//     min-height: 100vh;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-// }
-
-// // Yellow section styling
-// .yellow-rectangle {
-//     background-color: #faa61a;
-//     color: #242424;
-//     height: 57vh; 
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     padding: 0;
-//     text-align: center; 
-// }
-
-// .contact-text {
-//     max-width: 60%;  
-//     margin: 0 auto;  
-//     text-align: center; 
-
-//     h1 {
-//         font-size: 3.5rem;
-//         font-weight: 600;
-//         margin: 0.5rem 0;
-//         max-width: 87%; 
-//         margin: 0 auto; 
-//     }
-
-//     p {
-//         font-size: 2rem;
-//         font-weight: 450;
-//         margin: 0.5rem 0 2rem 0;
-//         max-width: 100%; 
-      
-//     }
-// }
-
-
-// .contact-email-bar {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     background-color: #f0f0f0;
-//     border-radius: 5rem; 
-//     width: 60rem; 
-//     height: 7rem; 
-//     margin: 20px auto;
-// }
-
-// .contact-input {
-//     flex: 1;
-//     padding: 1rem 1.5rem; 
-//     border: none;
-//     border-radius: 5rem 0 0 5rem;
-//     outline: none;
-//     font-size: 2rem; 
-//     margin-left: 5%; 
-//     background-color: #f0f0f0;
-//     color: #333;
-// }
-
-// .contact-send-btn {
-//     height: 100%;
-//     width: 25%;
-//     background-color: #0084ff;
-//     color: white;
-//     border: none;
-//     border-radius: 5rem;
-//     cursor: pointer;
-//     font-size: 2rem; 
-//     transition: background-color 0.3s ease;
-//     margin-left: 1rem;
-// }
-
-// .contact-send-btn:hover {
-//     background-color: #0279e9;
-// }
-
-// // 
-// .gray-rectangle {
-//     background-color: #242424;
-//     width: 100%;
-//     height: 40vh; 
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 3%;
-//     padding-top: 2%;
-// }
-
-// // Left side (Logo + copyright)
-// .logo-container {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: flex-start;
-
-//     .contact-logo {
-//         width: 100%; 
-//         height: auto;
-//     }
-
-//     .copyright {
-//         font-size: 1rem;
-//         color: white;
-//         margin-top: 9rem;
-//     }
-// }
-
-// // Right side (Info + social icons)
-// .info-container {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: flex-end;
-//     color: white;
-//     text-align: right;
-//     padding-right: 7%; /* Adjusted padding */
-//     padding-top: 3%;
-    
-//     h3 {
-//         font-size: 1.2rem;
-//         line-height: 1.4;
-//         font-weight: 500;
-//         margin-bottom: 10px; 
-//     }
-
-//     .social-icons {
-//         display: flex;
-//         align-items: center;
-//         margin: 2rem 0 0.2rem 0; 
-
-//         .social-icon {
-//             width: 30px;
-//             height: auto;
-//             cursor: pointer;
-//             margin: 0 10px;
-//             &:hover {
-//                 opacity: 0.7;
-//             }
-//         }
-//     }
-
-//     .legal-links {
-//         display: flex;
-//         justify-content: center;
-//         margin-top: 15px;
-
-//         .legal-link {
-//             color: white;
-//             text-decoration: none;
-//             margin: 0 5px;
-//             font-size: 1rem;
-//             &:hover {
-//                 text-decoration: underline;
-//             }
-//         }
-
-//         span {
-//             color: white;
-//             margin: 0 5px;
-//         }
-//     }
-// }
-
-
-
-
-// Base styles for larger screens (default styles)
 .contact-container {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     min-height: 100vh;
@@ -183,55 +10,57 @@
 .yellow-rectangle {
     background-color: #faa61a;
     color: #242424;
-    height: 57vh;
+    height: 57vh; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0;
-    text-align: center;
+    text-align: center; 
 }
 
 .contact-text {
-    max-width: 60%;
-    margin: 0 auto;
-    text-align: center;
+    max-width: 60%;  
+    margin: 0 auto;  
+    text-align: center; 
 
     h1 {
         font-size: 3.5rem;
         font-weight: 600;
         margin: 0.5rem 0;
-        max-width: 87%;
-        margin: 0 auto;
+        max-width: 87%; 
+        margin: 0 auto; 
     }
 
     p {
         font-size: 2rem;
         font-weight: 450;
         margin: 0.5rem 0 2rem 0;
-        max-width: 100%;
+        max-width: 100%; 
+      
     }
 }
+
 
 .contact-email-bar {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #f0f0f0;
-    border-radius: 5rem;
-    width: 60rem;
-    height: 7rem;
+    border-radius: 5rem; 
+    width: 60rem; 
+    height: 7rem; 
     margin: 20px auto;
 }
 
 .contact-input {
     flex: 1;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem; 
     border: none;
     border-radius: 5rem 0 0 5rem;
     outline: none;
-    font-size: 2rem;
-    margin-left: 5%;
+    font-size: 2rem; 
+    margin-left: 5%; 
     background-color: #f0f0f0;
     color: #333;
 }
@@ -244,7 +73,7 @@
     border: none;
     border-radius: 5rem;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 2rem; 
     transition: background-color 0.3s ease;
     margin-left: 1rem;
 }
@@ -253,55 +82,55 @@
     background-color: #0279e9;
 }
 
-
+// 
 .gray-rectangle {
     background-color: #242424;
-    width: 100%;
-    height: 40vh;
+    height: 40vh; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 3%;
-    padding-top: 2%;
 }
 
+// Left side (Logo + copyright)
 .logo-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 
     .contact-logo {
-        width: 100%;
+        width: 100%; 
         height: auto;
     }
 
     .copyright {
         font-size: 1rem;
         color: white;
-        margin-top: 7.9rem;
+        margin-top: 8rem;
     }
 }
 
+// Right side (Info + social icons)
 .info-container {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     color: white;
     text-align: right;
-    padding-right: 7%;
     
 
+    
     h3 {
         font-size: 1.2rem;
-        
+        line-height: 1.4;
         font-weight: 500;
-        margin-bottom: 10px;
+        margin-bottom: 10px; 
     }
 
     .social-icons {
         display: flex;
         align-items: center;
-        margin: 2rem 0 0.2rem 0;
+        margin: 2rem 0 0.2rem 0; 
 
         .social-icon {
             width: 30px;
@@ -336,182 +165,351 @@
     }
 }
 
-// Responsive styles
 
-// Handset Portrait
-.handset-portrait {
-    .yellow-rectangle {
-        height: auto;
-        padding: 1.5rem;
 
-        .contact-text {
-            max-width: 90%;
-            h1 {
-                font-size: 2.5rem;
-            }
-            p {
-                font-size: 1.5rem;
-            }
-        }
-    }
 
-    .contact-email-bar {
-        width: 90%;
-        height: 5rem;
-    }
+// // Base styles for larger screens (default styles)
+// .contact-container {
+//     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+//     min-height: 100vh;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+// }
 
-    .contact-input {
-        font-size: 1rem;
-        padding: 0.8rem 1.2rem;
-    }
+// // Yellow section styling
+// .yellow-rectangle {
+//     background-color: #faa61a;
+//     color: #242424;
+//     height: 57vh;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     padding: 0;
+//     text-align: center;
+// }
 
-    .contact-send-btn {
-        font-size: 1rem;
-        width: 35%;
-    }
+// .contact-text {
+//     max-width: 60%;
+//     margin: 0 auto;
+//     text-align: center;
 
-    .gray-rectangle {
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        padding: 2rem;
-    }
+//     h1 {
+//         font-size: 3.5rem;
+//         font-weight: 600;
+//         margin: 0.5rem 0;
+//         max-width: 87%;
+//         margin: 0 auto;
+//     }
 
-    .info-container {
-        text-align: center;
-        h3 {
-            font-size: 1rem;
-        }
-    }
-}
+//     p {
+//         font-size: 2rem;
+//         font-weight: 450;
+//         margin: 0.5rem 0 2rem 0;
+//         max-width: 100%;
+//     }
+// }
 
-// Handset Landscape
-.handset-landscape {
-    .yellow-rectangle {
-        height: auto;
-        padding: 2rem;
+// .contact-email-bar {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background-color: #f0f0f0;
+//     border-radius: 5rem;
+//     width: 60rem;
+//     height: 7rem;
+//     margin: 20px auto;
+// }
 
-        .contact-text {
-            max-width: 70%;
-            h1 {
-                font-size: 3rem;
-            }
-            p {
-                font-size: 1.8rem;
-            }
-        }
-    }
+// .contact-input {
+//     flex: 1;
+//     padding: 1rem 1.5rem;
+//     border: none;
+//     border-radius: 5rem 0 0 5rem;
+//     outline: none;
+//     font-size: 2rem;
+//     margin-left: 5%;
+//     background-color: #f0f0f0;
+//     color: #333;
+// }
 
-    .contact-email-bar {
-        width: 80%;
-        height: 6rem;
-    }
+// .contact-send-btn {
+//     height: 100%;
+//     width: 25%;
+//     background-color: #0084ff;
+//     color: white;
+//     border: none;
+//     border-radius: 5rem;
+//     cursor: pointer;
+//     font-size: 2rem;
+//     transition: background-color 0.3s ease;
+//     margin-left: 1rem;
+// }
 
-    .contact-input {
-        font-size: 1.6rem;
-        padding: 1rem 1.5rem;
-    }
+// .contact-send-btn:hover {
+//     background-color: #0279e9;
+// }
 
-    .contact-send-btn {
-        font-size: 1.6rem;
-        width: 25%;
-    }
 
-    .gray-rectangle {
-        flex-direction: row;
-        align-items: center;
-        height: auto;
-        padding: 3rem;
-    }
+// .gray-rectangle {
+//     background-color: #242424;
+//     width: 100%;
+//     height: 40vh;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 3%;
+//     padding-top: 2%;
+// }
 
-    .info-container {
-        text-align: center;
-        h3 {
-            font-size: 1.2rem;
-        }
-    }
-}
+// .logo-container {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
 
-// Tablet Portrait
-.tablet-portrait {
-    .yellow-rectangle {
-        height: auto;
-        padding: 1.5rem;
+//     .contact-logo {
+//         width: 100%;
+//         height: auto;
+//     }
 
-        .contact-text {
-            max-width: 70%;
-            h1 {
-                font-size: 3.5rem;
-            }
-            p {
-                font-size: 1.8rem;
-            }
-        }
-    }
+//     .copyright {
+//         font-size: 1rem;
+//         color: white;
+//         margin-top: 7.9rem;
+//     }
+// }
 
-    .contact-email-bar {
-        width: 70%;
-        height: 6rem;
-    }
+// .info-container {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-end;
+//     color: white;
+//     text-align: right;
+//     padding-right: 7%;
+    
 
-    .contact-input {
-        font-size: 1.5rem;
-    }
+//     h3 {
+//         font-size: 1.2rem;
+        
+//         font-weight: 500;
+//         margin-bottom: 10px;
+//     }
 
-    .contact-send-btn {
-        font-size: 1.5rem;
-    }
+//     .social-icons {
+//         display: flex;
+//         align-items: center;
+//         margin: 2rem 0 0.2rem 0;
 
-    .gray-rectangle {
-        height: auto;
-        flex-direction: column;
-        align-items: center;
-    }
+//         .social-icon {
+//             width: 30px;
+//             height: auto;
+//             cursor: pointer;
+//             margin: 0 10px;
+//             &:hover {
+//                 opacity: 0.7;
+//             }
+//         }
+//     }
 
-    .info-container {
-        align-items: center;
-        text-align: center;
-    }
-}
+//     .legal-links {
+//         display: flex;
+//         justify-content: center;
+//         margin-top: 15px;
 
-// Tablet Landscape
-.tablet-landscape {
-    .yellow-rectangle {
-        height: auto;
-        padding: 1.5rem;
+//         .legal-link {
+//             color: white;
+//             text-decoration: none;
+//             margin: 0 5px;
+//             font-size: 1rem;
+//             &:hover {
+//                 text-decoration: underline;
+//             }
+//         }
 
-        .contact-text {
-            max-width: 70%;
-            h1 {
-                font-size: 3.5rem;
-            }
-            p {
-                font-size: 1.8rem;
-            }
-        }
-    }
+//         span {
+//             color: white;
+//             margin: 0 5px;
+//         }
+//     }
+// }
 
-    .contact-email-bar {
-        width: 70%;
-    }
+// // Responsive styles
 
-    .contact-input {
-        font-size: 1.8rem;
-    }
+// // Handset Portrait
+// .handset-portrait {
+//     .yellow-rectangle {
+//         height: auto;
+//         padding: 1.5rem;
 
-    .contact-send-btn {
-        font-size: 1.8rem;
-    }
+//         .contact-text {
+//             max-width: 90%;
+//             h1 {
+//                 font-size: 2.5rem;
+//             }
+//             p {
+//                 font-size: 1.5rem;
+//             }
+//         }
+//     }
 
-    .gray-rectangle {
-        height: auto;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+//     .contact-email-bar {
+//         width: 90%;
+//         height: 5rem;
+//     }
 
-    .info-container {
-        align-items: flex-end;
-        text-align: right;
-    }
-}
+//     .contact-input {
+//         font-size: 1rem;
+//         padding: 0.8rem 1.2rem;
+//     }
+
+//     .contact-send-btn {
+//         font-size: 1rem;
+//         width: 35%;
+//     }
+
+//     .gray-rectangle {
+//         flex-direction: column;
+//         align-items: center;
+//         height: auto;
+//         padding: 2rem;
+//     }
+
+//     .info-container {
+//         text-align: center;
+//         h3 {
+//             font-size: 1rem;
+//         }
+//     }
+// }
+
+// // Handset Landscape
+// .handset-landscape {
+//     .yellow-rectangle {
+//         height: auto;
+//         padding: 2rem;
+
+//         .contact-text {
+//             max-width: 70%;
+//             h1 {
+//                 font-size: 3rem;
+//             }
+//             p {
+//                 font-size: 1.8rem;
+//             }
+//         }
+//     }
+
+//     .contact-email-bar {
+//         width: 80%;
+//         height: 6rem;
+//     }
+
+//     .contact-input {
+//         font-size: 1.6rem;
+//         padding: 1rem 1.5rem;
+//     }
+
+//     .contact-send-btn {
+//         font-size: 1.6rem;
+//         width: 25%;
+//     }
+
+//     .gray-rectangle {
+//         flex-direction: row;
+//         align-items: center;
+//         height: auto;
+//         padding: 3rem;
+//     }
+
+//     .info-container {
+//         text-align: center;
+//         h3 {
+//             font-size: 1.2rem;
+//         }
+//     }
+// }
+
+// // Tablet Portrait
+// .tablet-portrait {
+//     .yellow-rectangle {
+//         height: auto;
+//         padding: 1.5rem;
+
+//         .contact-text {
+//             max-width: 70%;
+//             h1 {
+//                 font-size: 3.5rem;
+//             }
+//             p {
+//                 font-size: 1.8rem;
+//             }
+//         }
+//     }
+
+//     .contact-email-bar {
+//         width: 70%;
+//         height: 6rem;
+//     }
+
+//     .contact-input {
+//         font-size: 1.5rem;
+//     }
+
+//     .contact-send-btn {
+//         font-size: 1.5rem;
+//     }
+
+//     .gray-rectangle {
+//         height: auto;
+//         flex-direction: column;
+//         align-items: center;
+//     }
+
+//     .info-container {
+//         align-items: center;
+//         text-align: center;
+//     }
+// }
+
+// // Tablet Landscape
+// .tablet-landscape {
+//     .yellow-rectangle {
+//         height: auto;
+//         padding: 1.5rem;
+
+//         .contact-text {
+//             max-width: 70%;
+//             h1 {
+//                 font-size: 3.5rem;
+//             }
+//             p {
+//                 font-size: 1.8rem;
+//             }
+//         }
+//     }
+
+//     .contact-email-bar {
+//         width: 70%;
+//     }
+
+//     .contact-input {
+//         font-size: 1.8rem;
+//     }
+
+//     .contact-send-btn {
+//         font-size: 1.8rem;
+//     }
+
+//     .gray-rectangle {
+//         height: auto;
+//         flex-direction: row;
+//         justify-content: space-between;
+//     }
+
+//     .info-container {
+//         align-items: flex-end;
+//         text-align: right;
+//     }
+// }
 
