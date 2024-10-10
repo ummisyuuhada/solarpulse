@@ -1,9 +1,8 @@
 import { Component, AfterViewInit } from '@angular/core';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/all';
 
 gsap.registerPlugin(ScrollTrigger);
-
 @Component({
   selector: 'app-about-us',
   standalone: true,
@@ -12,58 +11,67 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class AboutUsComponent implements AfterViewInit {
 
-  constructor() {}
 
   ngAfterViewInit(): void {
-    
-    gsap.to('.about-left img.about-image1', {
-      scrollTrigger: {
-        trigger: '.about-container:nth-child(1)',
-        start: 'top top', 
-        endTrigger: '.about-container:nth-child(2)', 
-        end: 'top top', 
-        pin: '.about-left',
-        pinSpacing: false,
-        scrub: true,
-      }
+    const textsTransition = gsap.utils.toArray('.text-container:nth-child(n+2)') as HTMLElement[];
+    const images = gsap.utils.toArray('.about-image') as HTMLElement[];
+
+    ScrollTrigger.create({
+      trigger: '.trigger',
+      pin: '.image-container', // Pin the image section
+      start: 'top top',
+      end: 'bottom bottom',
+      endTrigger: '.about-container',
+      // pinSpacing: false,
+      // scrub: true,
+      markers: true
     });
 
-    
-    // Image 1 fading out and Image 2 fading in
-    gsap.to('.about-left img.about-image1', {
-      opacity: 0,
-      scrollTrigger: {
-        trigger: '.about-container:nth-child(2)',
-        start: 'top bottom', 
-        end: 'top top',
-        scrub: true,
-        onUpdate: (self) => {
-          // Fading in Image 2 as Image 1 fades out
-          gsap.to('.about-left img.about-image2', { opacity: self.progress, duration: 0.3 });
+    // gsap.to(".image-container",{
+    // let tl = gsap.timeline({
+
+    images.forEach((image, i) => {
+      if (i === 0) return; // Skip the first image since it starts visible
+
+
+      // Fade out the previous image when the trigger is hit
+      gsap.to(images[i - 1], {
+        opacity: 0,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: ".text-container:nth-child(n+2)",
+          start: 'top +=50%',
+          toggleActions: 'play none none reverse',
+          markers: false
         }
-      }
-    });
+      });
 
-    // Ensure Image 2 starts with 0 opacity
-    gsap.set('.about-left img.about-image2', { opacity: 0 });
-
-    // Image 2 fading out and Image 1 fading in
-    gsap.to('.about-left img.about-image2', {
-      opacity: 0,
-      scrollTrigger: {
-        trigger: '.about-container:nth-child(3)', // Assuming there's a third container
-        start: 'top bottom', 
-        end: 'top top',
-        scrub: true,
-        onUpdate: (self) => {
-          // Fading in Image 1 as Image 2 fades out
-          gsap.to('.about-left img.about-image1', { opacity: self.progress, duration: 0.3 });
+      // Fade in the current image when the trigger is hit
+      gsap.to(image, {
+        opacity: 1,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: ".text-container:nth-child(n+2)",
+          start: 'top +=50%',
+          toggleActions: 'play none none reverse',
+          markers: false
         }
-      }
+      });
     });
 
+    gsap.set(textsTransition,{opacity: 0});
 
-
-
+   gsap.to(".text-container:nth-child(n+2)",{
+        scrollTrigger: {
+          trigger: ".text-container:nth-child(n+2)",
+          start: `top +=55%`,
+          end: `bottom bottom`,
+          scrub: true,
+          markers: false
+        },
+        opacity: 1,
+   
+    }) 
+    
   }
 }
