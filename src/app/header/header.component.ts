@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 
 @Component({
@@ -12,6 +13,9 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class HeaderComponent {
+
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
 
@@ -30,7 +34,29 @@ export class HeaderComponent {
       }
     });
   }
+
+
+   scrollToSection(sectionId: string) {
+    const currentUrl = this.router.url;
+
+    if (currentUrl === '/') {
+      this.scrollToTarget(sectionId);
+    } else {
+      this.router.navigate(['/']).then(() => {
+        setTimeout(() => {
+          this.scrollToTarget(sectionId);
+        }, 500);  // Allow some time for the navigation to complete
+      });
+    }
   }
+
+  scrollToTarget(sectionId: string) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+}
 
  
 // toggleShowClass() {

@@ -31,7 +31,7 @@ export class FourthSectionComponent implements AfterViewInit {
       start: "top top",
       end: "bottom bottom",
       scrub: true,
-      markers: true
+      // markers: true
     })
 
     let images = gsap.utils.toArray(".image-container") as HTMLElement[];
@@ -46,7 +46,7 @@ export class FourthSectionComponent implements AfterViewInit {
           start: () => `top+=${i * window.innerHeight} top`,
           end: () => `top+=${(i + 1) * window.innerHeight} top`,
           scrub: true,
-          markers: true
+          // markers: true
         }
       });
 

@@ -72,7 +72,7 @@
 
 .content-section {
   width: 50%;
-  margin-left: 100px;
+  margin: 0 100px 0px 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,7 +90,7 @@
 
 .content-section h1 {
   position: relative;
-  font-size: 300%;
+  font-size: 3vw;
   font-weight: 600;
 
 }
@@ -101,7 +101,7 @@
 
 .content-section p {
   color: lightgray;
-  font-size: 200%;
+  font-size: 2vw;
   margin: 0;
 }
 
