@@ -56,7 +56,7 @@ export class FourthSectionComponent implements AfterViewInit {
         scrollTrigger: {
           trigger: ".trigger",
           start: () => `top+=${i * window.innerHeight} top`,
-          end: () => `top+=${(i + 1) * window.innerHeight} top`,
+          end: () => `top+=${(i + 0.8) * window.innerHeight} top`,
           scrub: true,
           // markers: true
         }
