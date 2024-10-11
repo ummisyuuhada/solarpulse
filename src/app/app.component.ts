@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs/operators'; // test
 import { NgIf } from '@angular/common'; // test
@@ -35,6 +35,23 @@ export class AppComponent {
       setTimeout(() => {
         window.scrollTo(0, 0); // Scroll to the top of the page
       }, 100);
+    });
+  }
+
+  showScrollToTop: boolean = false;
+
+  // Scroll event listener
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const yOffset = window.pageYOffset || document.documentElement.scrollTop;
+    this.showScrollToTop = yOffset > 300; // Show when user scrolls down 300px
+  }
+
+  // Scroll to top method
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
   }
 }
