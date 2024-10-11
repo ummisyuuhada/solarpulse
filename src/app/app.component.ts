@@ -11,11 +11,14 @@ import { FourthSectionComponent } from "./fourth-section/fourth-section.componen
 import { ContactUsComponent } from "./contact-us/contact-us.component";
 import { TermsComponent } from './terms/terms.component';
 import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.component";
+import { HomeSecondComponent } from "./home-second/home-second.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf, HeaderComponent, HomeComponent, SecondSectionComponent, AboutUsComponent, ThirdSectionComponent, FourthSectionComponent, ContactUsComponent, TermsComponent, PrivacyPolicyComponent],
+  imports: [RouterOutlet, NgIf, HeaderComponent, HomeComponent, SecondSectionComponent, 
+    AboutUsComponent, ThirdSectionComponent, FourthSectionComponent, ContactUsComponent, 
+    TermsComponent, PrivacyPolicyComponent, HomeSecondComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

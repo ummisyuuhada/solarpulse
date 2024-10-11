@@ -33,18 +33,32 @@ export class FourthSectionComponent implements AfterViewInit {
       scrub: true,
       markers: true
     })
+    let title = document.querySelector(".fourth-section-title");
 
-    gsap.set(".fourth-section-title",{opacity:0})
-    gsap.to(".fourth-section-title", {
+    gsap.set(title, { opacity: 0 })
+
+    let titletl = gsap.timeline({
       scrollTrigger: {
         trigger: ".trigger",
-        start: "top +=60%",
-        end: "top top",
+        start: () => `top +=70%`,
+        end: () => `top top-=10%`,
         scrub: true,
         markers: true
-      },
-      opacity: 1
+      }
     })
+    titletl.to(title, {opacity: 1})
+    .to (title, {opacity: 0})
+
+    // gsap.to(title, {
+    //   scrollTrigger: {
+    //     trigger: ".trigger",
+    //     start: "top +=60%",
+    //     end: "top top",
+    //     scrub: true,
+    //     markers: true
+    //   },
+    //   opacity: 1
+    // })
 
     let images = gsap.utils.toArray(".image-container") as HTMLElement[];
     let texts = gsap.utils.toArray(".info-section") as HTMLElement[];
@@ -58,7 +72,7 @@ export class FourthSectionComponent implements AfterViewInit {
           start: () => `top+=${i * window.innerHeight} top`,
           end: () => `top+=${(i + 0.8) * window.innerHeight} top`,
           scrub: true,
-          // markers: true
+          markers: true
         }
       });
 

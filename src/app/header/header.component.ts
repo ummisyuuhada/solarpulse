@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-header',
@@ -14,13 +17,27 @@ import { filter } from 'rxjs/operators';
 
 export class HeaderComponent {
 
-
+  previousUrl: string = '';
   constructor(private router: Router) { }
 
   ngOnInit(): void {
 
     this.setupScrollListener();
     // window.addEventListener('scroll', this.toggleShowClass);
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      const currentUrl = event.urlAfterRedirects;
+      // Only refresh ScrollTrigger if navigating to the index page from another page
+      if (this.previousUrl !== '/' && currentUrl === '/') {
+        setTimeout(() => {
+          ScrollTrigger.refresh();  // Refresh ScrollTrigger when navigating to index
+        }, 300);  // Delay to ensure DOM updates are complete
+      }
+      this.previousUrl = currentUrl;  // Update previousUrl for the next navigation
+    });
+
   }
 
   setupScrollListener() {
