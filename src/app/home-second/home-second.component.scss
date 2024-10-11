@@ -104,7 +104,7 @@ $font-weight : 500;
     .three-images {
         flex: 1;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         width: auto;
         height: 100%;
