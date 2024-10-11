@@ -12,30 +12,31 @@ Cantarell,
 sans-serif;
 $font-weight : 500;
 
-.text-section{
+.text-section {
     transform: translateY(10%);
     opacity: 0;
     transition: 1s;
 }
 
-.text-section.show{
+.text-section.show {
     transform: translateY(0%);
     opacity: 1;
 }
 
-.image1, .image2{
+.image1,
+.image2 {
     transform: translateY(10%);
     opacity: 0;
     transition: 1s;
 }
 
-.image1.show{
+.image1.show {
     transition-delay: 150ms;
     transform: translateY(0%);
     opacity: 1;
 }
 
-.image2.show{
+.image2.show {
     transition-delay: 350ms;
     transform: translateY(0%);
     opacity: 1;
@@ -63,6 +64,7 @@ $font-weight : 500;
 
 
     .text-section {
+        flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -99,15 +101,17 @@ $font-weight : 500;
         font-weight: 200;
     }
 
-    .three-images{
+    .three-images {
+        flex: 1;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
-        height: auto;
+        width: auto;
+        height: 100%;
     }
 
-    .three-images img{
-       height: 30vh;
+    .three-images img {
+        flex: 1;
+        width: 30vw;
     }
 }
