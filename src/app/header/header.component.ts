@@ -107,6 +107,21 @@ export class HeaderComponent {
       
     }
   }
+
+  navigateToHome() {
+    const currentUrl = this.router.url;
+    if (currentUrl === '/') {
+      // If already on the home page, just refresh it
+      window.location.reload();
+    } else {
+      // Navigate to the home page and refresh it after navigation
+      // this.router.navigate(['/']).then(() => {
+      //   window.location.reload(); // Force a reload after navigation
+      // });
+      window.location.href = '/';
+    }
+  }
+  
 }
 
 

@@ -1,34 +1,35 @@
 .policy-section {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   letter-spacing: 0.15rem;
-  padding: 150px;
-  padding-top: 200px;
+  padding: 7.5%;
+  padding-top: 8%;
   text-align: justify;
+  height: auto;
   h1 {
-      position: relative;
-      font-size: 300%;
-      font-weight: 600;
+    position: relative;
+    font-size: 3.5rem;
+    font-weight: 600;
   }
   span {
-      color: orange;
-      font-size: 150%;
-      font-weight: 600;
+    color: orange;
+    font-size: 2rem;
+    font-weight: 600;
   }
   p {
-      color: lightgray;
-      font-size: 150%;
-      margin: 0;
-      text-align: justify;
+    color: lightgray;
+    font-size: 2rem;
+    margin: 0;
+    text-align: justify;
   }
       
 }
   
-
 .logos-container {
   display: flex;
   justify-content: left; 
   align-items: center;
-  margin-top: 40px; 
+  margin-top: 4%; 
+  width: 55%;
   span {
     font-size: 3rem;
     font-weight: 2; 
@@ -38,23 +39,27 @@
   }
 }
   
+.solarpulse-logo, .codebox-logo {
+  max-width: 20vw;
+  width: auto; 
+}
 .solarpulse-logo {
-  height: 90px; /* Keeps the solarpulse logo size */
-  margin-right: 10px;
+  margin-right: 2%;
+
+}
+.codebox-logo {
+  margin-left: 2%;
+  height: 100%;
 }
 
-.codebox-logo {
-  height: 40px; /* Makes the 57codebox logo smaller */
-  margin-left: 10px;
-}
 
 .policy-rectangle {
   background-color: #242424;
-  height: 40vh; 
+  height: auto; 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3%;
+  padding: 5%;
 }
 
 // Left side (Logo + copyright)
@@ -71,7 +76,7 @@
   .copyright {
       font-size: 1rem;
       color: white;
-      margin-top: 8rem;
+      margin-top: 9.2rem;
   }
 }
 
@@ -89,7 +94,7 @@
       font-size: 1.2rem;
       line-height: 1.4;
       font-weight: 500;
-      margin-bottom: 10px; 
+      margin-bottom: 1.5rem; 
   }
 
   .social-icons {
@@ -127,5 +132,73 @@
           color: white;
           margin: 0 5px;
       }
+  }
+}
+
+
+@media (max-width: 1000px) {
+  .solarpulse-logo, .codebox-logo {
+    max-width: 20vw;
+    width: auto; 
+  }
+  .policy-rectangle {
+    height: auto;
+    padding: 3rem;
+    flex-wrap: wrap;
+  }
+  .logo-container {
+    .copyright {
+    margin-top: 9rem;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .policy-section {
+    padding-top: 10%;
+    h1 {
+      font-size: 2.5rem;
+    }
+    span {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  }
+  .policy-rectangle {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 2rem 3rem;
+    flex-wrap: wrap;
+  }
+
+  .logo-container, .info-container {
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-container h3 {
+    font-size: 1rem;
+  }
+
+  .social-icons .social-icon {
+    width: 25px;
+    margin: 0 5px;
+  }
+
+  .legal-links {
+    flex-direction: row;
+    margin-top: 1rem;
+  }
+
+  .legal-link {
+    margin: 5px 0;
+  }
+
+  .copyright {
+    margin-top: 2rem;
+    font-size: 0.9rem;
   }
 }

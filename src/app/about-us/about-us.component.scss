@@ -98,3 +98,65 @@
   flex-direction: column;
   justify-content: center;
 }
+
+// @media (max-width: 850px) {
+//   .about-container {
+//     flex-direction: column; /* Stack the sections vertically */
+//     margin: 10% 5%; /* Adjust the margins for smaller screens */
+//   }
+
+//   .left {
+//     width: 100%; /* Make the left section take the full width */
+//     height: auto; /* Allow the height to adjust based on content */
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     margin-bottom: 5%; /* Add spacing between the left and right sections */
+//   }
+
+//   .about-image-container {
+//     width: 100%; /* Make the image container take the full width */
+//     img {
+//       width: 80%; /* Adjust image size for smaller screens */
+//       height: auto;
+//     }
+//   }
+
+//   .right {
+//     width: 100%; /* Make the right section take the full width */
+//     height: auto; /* Allow the height to adjust based on content */
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//   }
+
+//   .about-text-container {
+//     padding: 0; /* Remove side padding to utilize full screen space */
+//     width: 100%;
+//     text-align: center; /* Center-align text */
+//   }
+
+//   .title-container {
+//     justify-content: center; /* Center the title */
+//     width: 100%;
+//   }
+
+//   .title h1 {
+//     font-size: 6vw; /* Adjust font size for smaller screens */
+//   }
+
+//   .description {
+//     width: 100%; /* Make description take full width */
+//     font-size: 4vw; /* Adjust font size */
+//     text-align: center; /* Center-align the description */
+//   }
+
+//   .logo {
+//     width: 80%; /* Adjust logo size */
+//     margin: 0 auto; /* Center the logo */
+//     img {
+//       width: 100%;
+//       height: auto;
+//     }
+//   }
+// }

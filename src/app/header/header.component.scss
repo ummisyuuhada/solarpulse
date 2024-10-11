@@ -25,7 +25,7 @@
         align-items: center;
         gap: 15%;
         flex: 1;
-        font-size: 120%;
+        font-size: 1.2rem;
     }
 
     a {
@@ -42,6 +42,7 @@
             'Open Sans',
             'Helvetica Neue',
             sans-serif;
+            white-space: nowrap;
     }
 }
 
@@ -79,7 +80,7 @@
             align-items: center;
             gap: 10%;
             flex: 1;
-            font-size: 120%;
+            font-size: 1.2rem;
             padding-left: 20%;
         }
 
@@ -105,3 +106,67 @@
     transform: translateY(0);
     top: 0;
 }
+
+@media (max-width: 850px) {
+    .header {
+      width: 100%;
+      align-items: center;
+    }
+  
+    .container {
+        
+        
+        .logo-container {
+            padding-right: 1%;
+            flex-shrink: 0; // Prevent the logo from shrinking too much
+            img {
+                width: 60%; // Ensure the logo resizes but remains visible
+                max-width: 100%; // Make sure it doesn't overflow
+            }
+        }
+  
+      .selection-container {
+        display: flex;
+        gap: 8%; // Reduced gap between the navigation items
+        font-size: 1.2rem; // Reduced font size
+        justify-content: space-between;
+        flex-shrink: 1; // Allow the container to shrink as needed
+      }
+  
+      a {
+        font-size: 1.2rem; // Reduced font size for links
+        white-space: nowrap; // Prevent wrapping of link text
+        flex-shrink: 1; // Allow link text to shrink if necessary
+      }
+    }
+  }
+  
+//   @media (max-width: 1050px) {
+//     .header,
+//     .black-header {
+//       padding: 0 5%; // Keep the reduced padding for this screen size
+//     }
+  
+//     .container {
+//       align-items: center;
+//       padding: 0 3%;
+  
+//       .logo-container {
+//         img {
+//           width: 45%; // Adjust logo size to balance space with navigation items
+//         }
+//       }
+  
+//       .selection-container {
+//         display: flex;
+//         gap: 5%; // Reduce the gap between navigation links
+//         font-size: 1rem; // Adjust font size slightly for better fit
+//         justify-content: space-between;
+//       }
+  
+//       a {
+//         font-size: 1rem; // Adjust font size for links
+//       }
+//     }
+//   }
+  

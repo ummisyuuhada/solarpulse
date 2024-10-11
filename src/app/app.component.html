@@ -21,3 +21,12 @@
 
 <router-outlet></router-outlet>
 
+<!-- Scroll to Top Button -->
+<button
+  *ngIf="showScrollToTop"
+  (click)="scrollToTop()"
+  class="scroll-to-top"
+  aria-label="Scroll to top"
+>
+  ⬆️
+</button>
