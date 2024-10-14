@@ -63,6 +63,7 @@ $font-weight : 500;
 
 
     .text-section {
+        flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -100,15 +101,17 @@ $font-weight : 500;
     }
 
     .three-images{
+        flex: 1;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
-        width: 100%;
-        height: auto;
+        width: auto;
+        height: 100%;
     }
 
     .three-images img{
-       height: 70%;
+       flex: 1;
+       height: 30vw;
     }
 }
 @media (max-width: 850px) {
