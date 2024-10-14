@@ -122,7 +122,7 @@ export class AboutUsComponent implements AfterViewInit {
         start: 'top top',
         end: 'bottom bottom',
         endTrigger: '.about-container',
-        markers: true // Enable markers for debugging
+        // markers: true // Enable markers for debugging
       });
 
       images.forEach((image, i) => {

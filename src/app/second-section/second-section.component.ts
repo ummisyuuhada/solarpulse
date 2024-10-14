@@ -111,7 +111,7 @@ export class SecondSectionComponent implements AfterViewInit {
             pin: true, // Pin the container while scrolling
             scrub: 1, // Smooth scrubbing
             start: 'top top', // Start at the top of the container
-            end: `+=${totalWidth}px`, // Use the total width for dynamic scroll end
+            end: `+=${totalWidth * 0.5}px`, // Use the total width for dynamic scroll end
           }
         });
       });
