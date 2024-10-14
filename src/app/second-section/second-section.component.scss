@@ -1,7 +1,8 @@
-.container {
+.second-container {
   overflow-x: hidden;
-  width: 400vw;
+  width: 400%;
   height: 100vh;
+
   display: flex;
   flex-wrap: nowrap;
   position: relative;
@@ -9,7 +10,7 @@
 
 .panel {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -90,7 +91,7 @@
 
 .content-section h1 {
   position: relative;
-  font-size: 3vw;
+  font-size: 3rem;
   font-weight: 600;
 
 }
@@ -101,7 +102,7 @@
 
 .content-section p {
   color: lightgray;
-  font-size: 2vw;
+  font-size: 2rem;
   margin: 0;
 }
 
@@ -111,47 +112,84 @@
   opacity: 1;
 }
 
-@media (max-width: 850px) {
-  // .container {
-  //   max-height: 100%;
-  // }
+@media (max-width: 1000px) {
+  .second-container {
+    height: 100vh;
+    width: 400%;
+  }
   .panel {
-    flex-direction: column;
-    padding: 4% 2%;
-    height: auto;
-    justify-content: center; 
-    align-items: center;
+    height: 100%;
   }
-
-  .image-section, .content-section {
-    align-items: left;
-  }
-
   .image-section {
-    margin-left: 0;
-    width: 90%;
+    width: 70%;
   }
   .content-section {
-    //align-items: center;
- 
-    width: 80%;
-    margin-top: 2%;
+    width: 90%;
   }
-
-  /* Adjust font sizes for smaller screens */
   .content-section h1 {
-    font-size: 6vw;
+    position: relative;
+    font-size: 2rem;
+    font-weight: 600;
+  
   }
-  .content-section span {
-    font-size: 6vw;
+  
+  .content-section h1 span {
+    color: orange;
   }
+  
   .content-section p {
-    font-size: 4vw;
+    color: lightgray;
+    font-size: 1rem;
+    margin: 0;
+  }
+}
+
+
+
+
+@media (max-width: 850px) {
+  .second-container {
+    
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  
+  .panel {
+    
+    flex-direction: column;
+    padding: 3% 2%;
+    
+  }
+  
+  .image-section {
+    
+    width: 50%;
+    margin-left: 0px;
+    // display: flex; // Enable flexbox for centering
+    // justify-content: center; // Center content horizontally
+    align-items: left; // Center content vertically
+  }
+  
+  .content-section {
+
+    width: 80%;
+    text-align: center;
   }
 
-  /* Optional: Adjust the background images for better fit on smaller screens */
-  // .background-image1,
-  // .background-image2 {
-  //   background-position: top;
-  // }
+
+  .content-section h1 {
+    font-size: 2rem; // Adjust font size for mobile
+  }
+
+  .content-section span {
+    font-size: 2rem; // Adjust font size for mobile
+  }
+
+  .content-section p {
+    font-size: 1rem; // Adjust font size for mobile
+  }
 }
+

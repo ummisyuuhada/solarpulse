@@ -1,4 +1,4 @@
-$font-size: 2.8vw;
+$font-size: 4rem;
 $font-family : system-ui,
 -apple-system,
 BlinkMacSystemFont,
@@ -12,31 +12,30 @@ Cantarell,
 sans-serif;
 $font-weight : 500;
 
-.text-section {
+.text-section{
     transform: translateY(10%);
     opacity: 0;
     transition: 1s;
 }
 
-.text-section.show {
+.text-section.show{
     transform: translateY(0%);
     opacity: 1;
 }
 
-.image1,
-.image2 {
+.image1, .image2{
     transform: translateY(10%);
     opacity: 0;
     transition: 1s;
 }
 
-.image1.show {
+.image1.show{
     transition-delay: 150ms;
     transform: translateY(0%);
     opacity: 1;
 }
 
-.image2.show {
+.image2.show{
     transition-delay: 350ms;
     transform: translateY(0%);
     opacity: 1;
@@ -64,7 +63,6 @@ $font-weight : 500;
 
 
     .text-section {
-        flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -97,21 +95,39 @@ $font-weight : 500;
     }
 
     .text-section p {
-        font-size: 200%;
+        font-size: 2rem;
         font-weight: 200;
     }
 
-    .three-images {
-        flex: 1;
+    .three-images{
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         justify-content: center;
-        width: auto;
-        height: 100%;
+        width: 100%;
+        height: auto;
     }
 
-    .three-images img {
-        flex: 1;
-        width: 30vw;
+    .three-images img{
+       height: 70%;
     }
+}
+@media (max-width: 850px) {
+    .second-content {
+        width: 100%;
+    }
+    .second-content .text-section h1 {
+        font-size: 2rem; // Adjust font size for h1
+    }
+    .second-content .text-section .text-section-paragraph p{
+        font-size: 1.5rem;
+    }
+    .three-images {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center the images */
+        width: 100%; /* Full width of the parent container */
+    }
+
+    
+    
 }
