@@ -113,9 +113,7 @@
       align-items: center;
       
       margin: 0;
-    }
-  
-    .container {
+      .container {
         
         padding: 0% 8%;
         .logo-container {
@@ -144,48 +142,58 @@
         // flex-shrink: 1; // Allow link text to shrink if necessary
       }
     }
-
-
+    }
 
     .black-header {
         width: 100%;
         align-items: center;
         
         margin: 0;
+        .container {
+          
+            padding: 0% 5%;
+            .logo-container {
+                margin: 0;
+                // flex-shrink: 0; // Prevent the logo from shrinking too much
+                img {
+                    margin-top: 2%;
+                    width: 80%; // Ensure the logo resizes but remains visible
+                    min-width: 40%;
+                }
+            }
+      
+          .selection-container {
+            margin-left: 0;
+            padding-left: 0%;
+            display: flex;
+            margin-right: 8%;
+            gap: 5%; // Reduced gap between the navigation items
+            font-size: 1rem; // Reduced font size
+            justify-content: space-between;
+            // flex-shrink: 1; // Allow the container to shrink as needed
+          }
+      
+          a {
+            font-size: 1rem; // Reduced font size for links
+            white-space: nowrap; // Prevent wrapping of link text
+            // flex-shrink: 1; // Allow link text to shrink if necessary
+          }
+        }
     }
     
-      .container {
-          
-          padding: 0% 5%;
-          .logo-container {
-              margin: 0;
-              // flex-shrink: 0; // Prevent the logo from shrinking too much
-              img {
-                  margin-top: 2%;
-                  width: 80%; // Ensure the logo resizes but remains visible
-                  min-width: 40%;
-              }
-          }
-    
-        .selection-container {
-          margin-left: 0;
-          display: flex;
-          margin-right: 8%;
-          gap: 5%; // Reduced gap between the navigation items
-          font-size: 1rem; // Reduced font size
-          justify-content: space-between;
-          // flex-shrink: 1; // Allow the container to shrink as needed
-        }
-    
-        a {
-          font-size: 1rem; // Reduced font size for links
-          white-space: nowrap; // Prevent wrapping of link text
-          // flex-shrink: 1; // Allow link text to shrink if necessary
-        }
-      }
-
 
 }
-  
+@media (max-width: 450px) {
+    .black-header, .header {
+        .container {
+            a {
+                font-size: 0.9rem;
+            }
+        }
+    }
+    
+    
+
+}
 
   

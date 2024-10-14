@@ -158,9 +158,13 @@
   }
   
   .panel {
-    
+    height: 100vh;
     flex-direction: column;
-    padding: 3% 2%;
+    display: flex; // Enable flexbox for centering
+    justify-content: center; // Center contents horizontally
+    align-items: center; // Center contents vertically
+    text-align: center;
+    padding: 2%;
     
   }
   
