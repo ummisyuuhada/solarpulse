@@ -31,7 +31,7 @@ export class FourthSectionComponent implements AfterViewInit {
       start: "top top",
       end: "bottom bottom",
       scrub: true,
-      markers: true
+      // markers: true
     })
     let title = document.querySelector(".fourth-section-title");
 
@@ -43,7 +43,7 @@ export class FourthSectionComponent implements AfterViewInit {
         start: () => `top +=70%`,
         end: () => `top top-=10%`,
         scrub: true,
-        markers: true
+        // markers: true
       }
     })
     titletl.to(title, {opacity: 1})
@@ -72,7 +72,7 @@ export class FourthSectionComponent implements AfterViewInit {
           start: () => `top+=${i * window.innerHeight} top`,
           end: () => `top+=${(i + 0.8) * window.innerHeight} top`,
           scrub: true,
-          markers: true
+          // markers: true
         }
       });
 

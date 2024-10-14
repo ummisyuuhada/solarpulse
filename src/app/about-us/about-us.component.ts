@@ -24,7 +24,7 @@ export class AboutUsComponent implements AfterViewInit {
       endTrigger: '.about-container',
       // pinSpacing: false,
       // scrub: true,
-      markers: true
+      // markers: true
     });
 
     // gsap.to(".about-image-container",{
