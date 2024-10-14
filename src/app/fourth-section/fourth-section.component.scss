@@ -51,7 +51,7 @@
 .info {
     flex: 1;
     h1 {
-        font-size: 200%;
+        font-size: 2rem;
         font-weight: 200;
     }
     p{
@@ -64,11 +64,59 @@
     width: 100%;
     h1{
         font-weight: 500;
-       font-size: 300%; 
-       margin: 7% 0 0 20%;
+        font-size: 3rem; 
+        margin: 7% 0 0 20%;
     }
 }
 
 span{
     color: orange;
+}
+
+
+@media (max-width: 1000px) {
+    .fourth-section-title {
+        width: 80%;
+        h1 {
+            font-size: 2.5rem;
+        }
+        span {
+            font-size: 2.5rem;
+        }
+    }
+    .info-section {
+        display: flex;
+        flex-direction: column;
+        gap: 3%;
+    }
+    .info {
+        h1 {
+            font-size: 2rem;
+        }
+        
+    }
+}
+
+@media (max-width: 850px) {
+    .fourth-section-title {
+        text-align: center;
+        width: 80%;
+        h1 {
+            font-size: 2rem;
+        }
+        span {
+            font-size: 2rem;
+        }
+    }
+    .info-section {
+        display: flex;
+        flex-direction: column;
+        gap: 2%;
+    }
+    .info {
+        h1 {
+            font-size: 1.5rem;
+        }
+        
+    }
 }

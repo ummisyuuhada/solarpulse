@@ -1,4 +1,4 @@
-$font-size: 2.8vw;
+$font-size: 3rem;
 $font-family : system-ui,
 -apple-system,
 BlinkMacSystemFont,
@@ -109,7 +109,8 @@ $font-weight : 500;
         top: 13%;
         left: 0;
         h1 {
-            font-size: $font-size;
+            // font-size: $font-size;
+            font-size: 3rem;
             font-family: $font-family;
             font-weight: $font-weight;
             letter-spacing: 0.12rem;
@@ -163,5 +164,44 @@ $font-weight : 500;
 
 .laptop-gif{
     position: absolute;
+    
+}
+
+@media (max-width: 1150px) {
+    .first-content {
+        position: relative;
+    }
+    .first-content .text-section h1 {
+        font-size: 2.3rem; // Adjust font size for h1
+    }
+    .text-section {
+        h1 {
+            font-size: 2.3rem;
+        }
+        span {
+            font-size: 2.3rem; 
+        }
+    }
+}
+@media (max-width: 850px) {
+    .first-content {
+        position: relative;
+    }
+    .first-content .text-section h1 {
+        font-size: 3vw; // Adjust font size for h1
+    }
+    .text-section {
+        h1 {
+            font-size: 3vw;
+        }
+        span {
+            font-size: 3vw; 
+        }
+    }
+    @media (max-width: 850px) {
+        .image-section img {
+            width: 80%; /* Example to resize for smaller screens */
+        }
+    }
     
 }

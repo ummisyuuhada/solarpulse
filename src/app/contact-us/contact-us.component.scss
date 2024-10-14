@@ -195,16 +195,18 @@
 
 @media (max-width: 850px) {
     .contact-text h1 {
-        font-size: 2.5rem;
+        width: 100%;
+        font-size: 2rem;
     }
 
     .contact-text p {
-        font-size: 1.5rem;
+        width: 90%;
+        font-size: 1rem;
     }
 
     .yellow-rectangle {
         height: auto;
-        padding: 2rem;
+        padding: 1rem;
     }
 
     .contact-email-bar {
