@@ -131,11 +131,11 @@ $font-weight : 600;
         width: 100%; /* Full width of the parent container */
     }
 }
-@media (max-height: 600px){
-    .second-content .text-section h1 {
-        font-size: 2rem; // Adjust font size for h1
-    }
-    .second-content .text-section .text-section-paragraph p{
-        font-size: 1rem;
-    }
-}
+// @media (max-height: 600px){
+//     .second-content .text-section h1 {
+//         font-size: 2rem; // Adjust font size for h1
+//     }
+//     .second-content .text-section .text-section-paragraph p{
+//         font-size: 1rem;
+//     }
+// }
