@@ -88,7 +88,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5%;
+    // width: 100svw;
+    // padding: 5vw;
     // flex-wrap: wrap;
 }
 
@@ -97,6 +98,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: auto;
+    height: 100%;
 
     .contact-logo {
         width: 100%; 
@@ -241,7 +244,7 @@
     }
 
     .info-container h3 {
-        font-size: 1rem;
+        font-size: 3.6vw;
     }
 
     .social-icons .social-icon {
