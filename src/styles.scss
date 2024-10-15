@@ -1,14 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 body, html{
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     background-color: black;
     color: white;
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
     overflow-x: hidden;
-    font-family: system-ui,
+    font-family: 'Montserrat',
+    system-ui,
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
@@ -19,6 +20,5 @@ body, html{
     'Open Sans',
     'Helvetica Neue',
     sans-serif;
-    max-width: 100vw;
+    // max-width: 100vw;
 }
-

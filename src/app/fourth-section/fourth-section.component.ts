@@ -25,61 +25,74 @@ export class FourthSectionComponent implements AfterViewInit {
     //   }
     // })
 
-    ScrollTrigger.create({
-      trigger: ".trigger",
-      pin: ".sub-section-container",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: true,
-      // markers: true
-    })
-    let title = document.querySelector(".fourth-section-title");
+    const handleMediaQuery = () => {
+      const mediaQuery1000 = window.matchMedia("(max-width: 1000px)");
+      const mediaQuery850 = window.matchMedia("(max-width: 850px)");
 
-    gsap.set(title, { opacity: 0 })
-
-    let titletl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".trigger",
-        start: () => `top +=70%`,
-        end: () => `top top-=10%`,
-        scrub: true,
-        // markers: true
-      }
-    })
-    titletl.to(title, {opacity: 1})
-    .to (title, {opacity: 0})
-
-    // gsap.to(title, {
-    //   scrollTrigger: {
-    //     trigger: ".trigger",
-    //     start: "top +=60%",
-    //     end: "top top",
-    //     scrub: true,
-    //     markers: true
-    //   },
-    //   opacity: 1
-    // })
-
-    let images = gsap.utils.toArray(".image-container") as HTMLElement[];
-    let texts = gsap.utils.toArray(".info-section") as HTMLElement[];
-    gsap.set(images, { opacity: 0, y: 50 });
-    gsap.set(texts, { opacity: 0, y: 50 });
-
-    images.forEach((image, i) => {
-      let tl = gsap.timeline({
-        scrollTrigger: {
+      if (mediaQuery1000.matches || mediaQuery850.matches) {return}
+      else{
+        ScrollTrigger.create({
           trigger: ".trigger",
-          start: () => `top+=${i * window.innerHeight} top`,
-          end: () => `top+=${(i + 0.8) * window.innerHeight} top`,
+          pin: ".sub-section-container",
+          start: "top top",
+          end: "bottom bottom",
           scrub: true,
+          pinSpacing: false,
           // markers: true
-        }
-      });
+        })
+        let title = document.querySelector(".fourth-section-title");
 
-      tl.to(image, { opacity: 1, y: 0 }, "+=0")
-        .to(texts[i], { opacity: 1, y: 0 }, "+=0")
-        .to([image, texts[i]], { opacity: 0, y: -50 }, "+=1")
-    });
+        gsap.set(title, { opacity: 0 })
+
+        let titletl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".trigger",
+            start: () => `top +=70%`,
+            end: () => `top top-=10%`,
+            scrub: true,
+            // markers: true
+          }
+        })
+        titletl.to(title, { opacity: 1 })
+          .to(title, { opacity: 0 })
+
+        // gsap.to(title, {
+        //   scrollTrigger: {
+        //     trigger: ".trigger",
+        //     start: "top +=60%",
+        //     end: "top top",
+        //     scrub: true,
+        //     markers: true
+        //   },
+        //   opacity: 1
+        // })
+
+        let images = gsap.utils.toArray(".image-container") as HTMLElement[];
+        let texts = gsap.utils.toArray(".info-section") as HTMLElement[];
+        gsap.set(images, { opacity: 0, y: 50 });
+        gsap.set(texts, { opacity: 0, y: 50 });
+
+        images.forEach((image, i) => {
+          let tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".trigger",
+              start: () => `top+=${i * window.innerHeight} top`,
+              end: () => `top+=${(i + 0.8) * window.innerHeight} top`,
+              scrub: true,
+              // markers: true
+            }
+          });
+
+          tl.to(image, { opacity: 1, y: 0 }, "+=0")
+            .to(texts[i], { opacity: 1, y: 0 }, "+=0")
+            .to([image, texts[i]], { opacity: 0, y: -50 }, "+=1")
+        });
+      }
+    }
+
+    handleMediaQuery();
+
+    window.addEventListener("resize", handleMediaQuery);
 
     // texts.forEach((text, i) => {
     //   let tl = gsap.timeline({

@@ -86,37 +86,48 @@ gsap.registerPlugin(ScrollTrigger);
 export class SecondSectionComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
-    const containers = gsap.utils.toArray('.second-container') as HTMLElement[];
 
-    // Check the viewport width
-    const isMobileView = window.innerWidth <= 850;
+    const handleMediaQuery = () => {
+      const mediaQuery1000 = window.matchMedia("(max-width: 1000px)");
+      const mediaQuery850 = window.matchMedia("(max-width: 850px)");
 
-    // Apply GSAP horizontal scrolling animation for non-mobile screens
-    if (!isMobileView) {
-      containers.forEach((container) => {
-        const sections = container.querySelectorAll('.panel');
+      if (mediaQuery1000.matches || mediaQuery850.matches) { return }
+      else {
+        const containers = gsap.utils.toArray('.second-container') as HTMLElement[];
 
-        // Set the total width of the sections for proper scrolling
-        let totalWidth = 0;
-        sections.forEach((section) => {
-          totalWidth += section.clientWidth; // Sum up the width of each panel
+        // Apply GSAP horizontal scrolling animation for non-mobile screens
+
+        containers.forEach((container) => {
+          const sections = container.querySelectorAll('.panel');
+
+          // Set the total width of the sections for proper scrolling
+          let totalWidth = 0;
+          sections.forEach((section) => {
+            totalWidth += section.clientWidth; // Sum up the width of each panel
+          });
+
+          // GSAP animation for horizontal scroll
+          gsap.to(sections, {
+            xPercent: -100 * (sections.length - 1), // Move sections to the left
+            ease: 'none',
+            scrollTrigger: {
+              trigger: container,
+              pin: true, // Pin the container while scrolling
+              scrub: 1, // Smooth scrubbing
+              start: 'top top', // Start at the top of the container
+              end: `+=${totalWidth * 0.5}px`, // Use the total width for dynamic scroll end
+            }
+          });
         });
-
-        // GSAP animation for horizontal scroll
-        gsap.to(sections, {
-          xPercent: -100 * (sections.length - 1), // Move sections to the left
-          ease: 'none',
-          scrollTrigger: {
-            trigger: container,
-            pin: true, // Pin the container while scrolling
-            scrub: 1, // Smooth scrubbing
-            start: 'top top', // Start at the top of the container
-            end: `+=${totalWidth * 0.5}px`, // Use the total width for dynamic scroll end
-          }
-        });
-      });
+      }
     }
 
+    handleMediaQuery();
+
+    window.addEventListener("resize", handleMediaQuery);
+
+
+    // TEXTS FADE IN FADE OUT FUNCTIONS
     const backgroundImg = document.querySelectorAll(".tab-image");
     const thirdSectionImages = document.querySelectorAll(".tab-overlay");
     const textSections = document.querySelectorAll(".content-section");

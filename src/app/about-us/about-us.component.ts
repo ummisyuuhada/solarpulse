@@ -167,8 +167,8 @@ export class AboutUsComponent implements AfterViewInit {
       });
     } else {
       // For mobile view, set images and texts directly
-      gsap.set(images, { opacity: 0 });
-      gsap.set(images[0], { opacity: 1 }); // Show the first image
+      //gsap.set(images, { opacity: 0 });
+      gsap.set(images, { opacity: 1 }); // Show the first image
     }
   }
 }
