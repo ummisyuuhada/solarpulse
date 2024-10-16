@@ -36,25 +36,26 @@ export class FourthSectionComponent implements AfterViewInit {
           pin: ".sub-section-container",
           start: "top top",
           end: "bottom bottom",
-          scrub: true,
+          // scrub: true,
           pinSpacing: false,
-          // markers: true
+          markers: true
         })
-        let title = document.querySelector(".fourth-section-title");
+        // ===== might use later
+        // let title = document.querySelector(".fourth-section-title");
+        // gsap.set(title, { opacity: 0 })
 
-        gsap.set(title, { opacity: 0 })
 
-        let titletl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".trigger",
-            start: () => `top +=70%`,
-            end: () => `top top-=10%`,
-            scrub: true,
-            // markers: true
-          }
-        })
-        titletl.to(title, { opacity: 1 })
-          .to(title, { opacity: 0 })
+        // let titletl = gsap.timeline({
+        //   scrollTrigger: {
+        //     trigger: ".trigger",
+        //     start: () => `top +=70%`,
+        //     end: () => `top top-=10%`,
+        //     scrub: true,
+        //     markers: true
+        //   }
+        // })
+        // titletl.to(title, { opacity: 1 })
+          // .to(title, { opacity: 0 })
 
         // gsap.to(title, {
         //   scrollTrigger: {
@@ -77,9 +78,9 @@ export class FourthSectionComponent implements AfterViewInit {
             scrollTrigger: {
               trigger: ".trigger",
               start: () => `top+=${i * window.innerHeight} top`,
-              end: () => `top+=${(i + 0.8) * window.innerHeight} top`,
+              end: () => `top+=${(i + 1) * window.innerHeight} top`,
               scrub: true,
-              // markers: true
+              markers: true
             }
           });
 
