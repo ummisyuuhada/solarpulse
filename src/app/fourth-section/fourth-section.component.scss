@@ -20,7 +20,7 @@ body {
     flex-direction: column;
     align-items: center;
     // justify-content: center;
-    height: 100vh;
+    height: 100%;
     width: auto;
     overflow-y: hidden;
     overflow-x: hidden;
@@ -167,7 +167,7 @@ span {
         }
 
     }
-    // .sub-section-container {
-    //     height: auto;
-    // }
+    .sub-section-container {
+        height: auto;
+    }
 }
