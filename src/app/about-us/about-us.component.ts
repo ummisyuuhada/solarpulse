@@ -16,7 +16,7 @@ export class AboutUsComponent implements AfterViewInit, OnInit {
   isMobile: boolean = false;
 
   ngOnInit(): void {
-    const mediaQuery = window.matchMedia('(max-width: 567px)');
+    const mediaQuery = window.matchMedia('(max-width: 815px)');
     this.isMobile = mediaQuery.matches;
 
     mediaQuery.addEventListener('change', (e) => {
@@ -27,7 +27,7 @@ export class AboutUsComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit(): void {
     const handleMediaQuery = () => {
-      const mediaQuery = window.matchMedia('(max-width: 567px)');
+      const mediaQuery = window.matchMedia('(max-width: 815px)');
 
       if (!mediaQuery.matches) {
         const textsTransition = gsap.utils.toArray('.about-text-container:nth-child(n+2)') as HTMLElement[];
@@ -89,6 +89,28 @@ export class AboutUsComponent implements AfterViewInit, OnInit {
           opacity: 1,
 
         })
+      }
+      else{
+        const titles = document.querySelectorAll(".title")
+        const descriptions = document.querySelectorAll(".description")
+
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            entry.target.classList.toggle("show", entry.isIntersecting)
+            if (entry.isIntersecting) {
+              observer.unobserve(entry.target)
+            }
+          })
+        }, { threshold: 0.5 })
+  
+        titles.forEach(title => {
+          observer.observe(title)
+        })
+  
+        descriptions.forEach(description => {
+          observer.observe(description)
+        })
+  
       }
     }
 
