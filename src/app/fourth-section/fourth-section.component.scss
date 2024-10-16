@@ -3,7 +3,7 @@ body {
 }
 
 .trigger {
-    height: 300vh;
+    height: 330vh;
     overflow: hidden;
     position: relative;
 }
@@ -33,7 +33,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 60%;
-    gap: 2em;
+    // gap: 2em;
     margin: 18vh 15vh 20vh 15vh;
 
     .image-container {
@@ -85,6 +85,9 @@ span {
     color: orange;
 }
 
+.spacer{
+    height: 60vh;
+}
 
 @media (max-width: 1000px) {
     .fourth-section-container {

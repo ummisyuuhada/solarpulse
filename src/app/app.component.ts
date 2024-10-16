@@ -17,7 +17,7 @@ import { HomeSecondComponent } from "./home-second/home-second.component";
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, NgIf, HeaderComponent, HomeComponent, SecondSectionComponent, 
-    AboutUsComponent, ThirdSectionComponent, FourthSectionComponent, ContactUsComponent, 
+    AboutUsComponent, ThirdSectionComponent, FourthSectionComponent, ContactUsComponent, AboutUsComponent,
     TermsComponent, PrivacyPolicyComponent, HomeSecondComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
