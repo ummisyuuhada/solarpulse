@@ -126,7 +126,7 @@
   }
 
   .description {
-    font-size: 1.4rem;
+    font-size: 1rem;
     transform: translateY(10%);
     opacity: 0;
     transition: 1s;
@@ -140,17 +140,18 @@
     transition: 1s;
 
     h1 {
-      font-size: 4.7vw;
+      font-size: 1.5rem;
       margin: 0;
       text-align: center;
       padding-right: 2.5%;
     }
 
     .logo {
+
       display: flex;
       align-items: center;
       justify-items: center;
-      width: 38vw;
+      width: 14rem;
 
 
       img {
@@ -177,7 +178,6 @@
     align-items: center;
 
     h1 {
-      font-size: 4.7vw;
       margin: 0;
       text-align: center;
       padding-right: 2.5%;
@@ -187,8 +187,10 @@
       display: flex;
       align-items: center;
       justify-items: center;
-      width: 38vw;
-
+      width: 14rem;
+      h1{
+        font-size: 1.5rem;
+      }
 
       img {
         width: 75%;
@@ -212,7 +214,7 @@
     img {
       position: relative;
       height: auto;
-      width: 70%;
+      width: 60%;
     }
 
 
