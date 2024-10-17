@@ -189,13 +189,13 @@ export class SecondSectionComponent implements AfterViewInit, OnDestroy {
   }
 
   handleMediaQuery(): void {
-    const mediaQuery1000 = window.matchMedia("(max-width: 1000px)");
+    const mediaQuery1200 = window.matchMedia("(max-width: 1200px)");
     const mediaQuery850 = window.matchMedia("(max-width: 850px)");
 
     // Clear previous ScrollTriggers to avoid conflicts
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-    if (mediaQuery1000.matches || mediaQuery850.matches) {
+    if (mediaQuery1200.matches || mediaQuery850.matches) {
       // For mobile view (<=1000px), skip horizontal scrolling animations
       return;
     } else {

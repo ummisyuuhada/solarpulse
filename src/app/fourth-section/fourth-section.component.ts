@@ -229,7 +229,7 @@ export class FourthSectionComponent implements AfterViewInit, OnDestroy {
           start: "top top",
           end: "bottom bottom",
           pinSpacing: false,
-          markers: true
+          markers: false
         });
 
         let images = gsap.utils.toArray(".image-container") as HTMLElement[];
@@ -246,7 +246,7 @@ export class FourthSectionComponent implements AfterViewInit, OnDestroy {
               start: () => `top+=${i * window.innerHeight} top`,
               end: () => `top+=${(i + 1) * window.innerHeight} top`,
               scrub: true,
-              markers: true
+              markers: false
             }
           });
 
