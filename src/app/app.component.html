@@ -8,10 +8,9 @@
 <app-contact-us></app-contact-us>  -->
 <!-- <app-contact-us id="contact-us"></app-contact-us> -->
 
-<!-- <app-header></app-header> -->
+<app-header></app-header>
 <ng-container *ngIf="showGeneralContent">
   <app-home id="home"></app-home> 
-  <app-home-second></app-home-second>
   <app-home-second></app-home-second>
   <app-second-section id="second-section"></app-second-section>
   <app-third-section id="third-section"></app-third-section> 
@@ -23,11 +22,13 @@
 <router-outlet></router-outlet>
 
 <!-- Scroll to Top Button --> 
-<!-- <button
+<button
   *ngIf="showScrollToTop"
   (click)="scrollToTop()"
   class="scroll-to-top"
   aria-label="Scroll to top"
 >
-  ⬆️
-</button> -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+    <path d="M12 5l7 7h-5v7h-4v-7H5l7-7z"/>
+  </svg>
+</button>
