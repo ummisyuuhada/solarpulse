@@ -203,7 +203,7 @@ export class AboutUsComponent implements AfterViewInit, OnInit, OnDestroy {
       end: 'bottom bottom',
       endTrigger: '.about-container',
       scrub: true, // Smooth scrolling
-      markers: true,
+      // markers: true,
       invalidateOnRefresh: true // Ensures the trigger recalculates properly on refresh
     });
     this.aboutScrollTriggers.push(pinTrigger);

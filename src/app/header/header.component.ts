@@ -110,17 +110,25 @@ export class HeaderComponent {
 
   navigateToHome() {
     const currentUrl = this.router.url;
+  
+    // Store the current scroll position
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+  
     if (currentUrl === '/') {
-      // If already on the home page, just refresh it
+      // If already on the home page, reload the page and restore scroll position
       window.location.reload();
+  
+      // After reload, scroll to the stored position
+      window.addEventListener('load', () => {
+        window.scrollTo({ top: scrollPosition, behavior: 'auto' });
+      });
     } else {
-      // Navigate to the home page and refresh it after navigation
-      // this.router.navigate(['/']).then(() => {
-      //   window.location.reload(); // Force a reload after navigation
-      // });
+      // Navigate to the home page and refresh after navigation
       window.location.href = '/';
     }
   }
+  
+  
   
 }
 

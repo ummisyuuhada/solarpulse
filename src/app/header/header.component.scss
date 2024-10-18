@@ -1,3 +1,197 @@
+// .header {
+//     width: 100%;
+//     position: absolute;
+//     top: 0;
+//     z-index: 100;
+// }
+
+// .container {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     padding: 0 18% 0 18%;
+
+//     .logo-container {
+//         // padding-right: 5%;
+
+//         img {
+//             width: 75%;
+//         }
+//     }
+
+//     .selection-container {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         gap: 15%;
+//         flex: 1;
+//         font-size: 1.2rem;
+//     }
+
+//     a {
+//         color: white;
+//         text-decoration: none;
+//         font-family: system-ui,
+//             -apple-system,
+//             BlinkMacSystemFont,
+//             'Segoe UI',
+//             Roboto,
+//             Oxygen,
+//             Ubuntu,
+//             Cantarell,
+//             'Open Sans',
+//             'Helvetica Neue',
+//             sans-serif;
+//             white-space: nowrap;
+//     }
+// }
+
+// .black-header {
+
+
+//     width: 100%;
+//     position: fixed;
+//     transform: translateY(-100%);
+
+//     z-index: 1000;
+//     background-color: rgba($color: #000000, $alpha: 0.8);
+//     backdrop-filter: blur(10px);
+
+//     transition: 0.5s;
+
+
+//     .container {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         padding: 0 0 0 5%;
+
+//         .logo-container {
+//             // padding-right: 5%;
+
+//             img {
+//                 width: 65%;
+//             }
+//         }
+
+//         .selection-container {
+//             display: flex;
+//             justify-content: flex-end;
+//             align-items: center;
+//             gap: 10%;
+//             flex: 1;
+//             font-size: 1.2rem;
+//             padding-right: 8%;
+//         }
+
+//         a {
+//             color: white;
+//             text-decoration: none;
+//             font-family: system-ui,
+//                 -apple-system,
+//                 BlinkMacSystemFont,
+//                 'Segoe UI',
+//                 Roboto,
+//                 Oxygen,
+//                 Ubuntu,
+//                 Cantarell,
+//                 'Open Sans',
+//                 'Helvetica Neue',
+//                 sans-serif;
+//         }
+//     }
+// }
+
+// .black-header.show {
+//     transform: translateY(0);
+//     top: 0;
+// }
+
+// @media (max-width: 850px) {
+//     .header {
+//       width: 100%;
+//       align-items: center;
+
+//       margin: 0;
+//       .container {
+
+//         padding: 0% 8%;
+//         .logo-container {
+//             margin: 0;
+//             // flex-shrink: 0; // Prevent the logo from shrinking too much
+//             img {
+//                 margin-top: 2%;
+//                 width: 80%; // Ensure the logo resizes but remains visible
+//                 min-width: 40%;
+//             }
+//         }
+
+//       .selection-container {
+//         margin-left: 0;
+//         display: flex;
+//         margin-right: 8%;
+//         gap: 5%; // Reduced gap between the navigation items
+//         font-size: 1rem; // Reduced font size
+//         justify-content: space-between;
+//         // flex-shrink: 1; // Allow the container to shrink as needed
+//       }
+
+//       a {
+//         font-size: 1rem; // Reduced font size for links
+//         white-space: nowrap; // Prevent wrapping of link text
+//         // flex-shrink: 1; // Allow link text to shrink if necessary
+//       }
+//     }
+//     }
+//     .black-header {
+//         width: 100%;
+//         align-items: center;
+
+//         margin: 0;
+//         .container {
+
+//             padding: 0% 5%;
+//             .logo-container {
+//                 margin: 0;
+//                 // flex-shrink: 0; // Prevent the logo from shrinking too much
+//                 img {
+//                     margin-top: 2%;
+//                     width: 80%; // Ensure the logo resizes but remains visible
+//                     min-width: 40%;
+//                 }
+//             }
+
+//           .selection-container {
+//             margin-left: 0;
+//             padding-left: 0%;
+//             display: flex;
+//             margin-right: 0%;
+//             gap: 5%; // Reduced gap between the navigation items
+//             font-size: 1rem; // Reduced font size
+//             justify-content: space-between;
+//             // flex-shrink: 1; // Allow the container to shrink as needed
+//           }
+
+//           a {
+//             font-size: 1rem; // Reduced font size for links
+//             white-space: nowrap; // Prevent wrapping of link text
+//             // flex-shrink: 1; // Allow link text to shrink if necessary
+//           }
+//         }
+//     }
+
+
+// }
+// @media (max-width: 450px) {
+//     .black-header, .header {
+//         .container {
+//             a {
+//                 font-size: 0.9rem;
+//             }
+//         }
+//     }
+// }
+
 .header {
     width: 100%;
     position: absolute;
@@ -12,202 +206,12 @@
     padding: 0 18% 0 18%;
 
     .logo-container {
-        // padding-right: 5%;
-
         img {
             width: 75%;
         }
-    }
 
-    .selection-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15%;
-        flex: 1;
-        font-size: 1.2rem;
-    }
-
-    a {
-        color: white;
-        text-decoration: none;
-        font-family: system-ui,
-            -apple-system,
-            BlinkMacSystemFont,
-            'Segoe UI',
-            Roboto,
-            Oxygen,
-            Ubuntu,
-            Cantarell,
-            'Open Sans',
-            'Helvetica Neue',
-            sans-serif;
-            white-space: nowrap;
-    }
-}
-
-.black-header {
-
-
-    width: 100%;
-    position: fixed;
-    transform: translateY(-100%);
-
-    z-index: 1000;
-    background-color: rgba($color: #000000, $alpha: 0.8);
-    backdrop-filter: blur(10px);
-
-    transition: 0.5s;
-
-
-    .container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 0 0 5%;
-
-        .logo-container {
-            // padding-right: 5%;
-
-            img {
-                width: 65%;
-            }
-        }
-
-        .selection-container {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 10%;
-            flex: 1;
-            font-size: 1.2rem;
-            padding-right: 8%;
-        }
-
-        a {
-            color: white;
-            text-decoration: none;
-            font-family: system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                'Segoe UI',
-                Roboto,
-                Oxygen,
-                Ubuntu,
-                Cantarell,
-                'Open Sans',
-                'Helvetica Neue',
-                sans-serif;
-        }
-    }
-}
-
-.black-header.show {
-    transform: translateY(0);
-    top: 0;
-}
-
-@media (max-width: 850px) {
-    .header {
-      width: 100%;
-      align-items: center;
-      
-      margin: 0;
-      .container {
-        
-        padding: 0% 8%;
-        .logo-container {
-            margin: 0;
-            // flex-shrink: 0; // Prevent the logo from shrinking too much
-            img {
-                margin-top: 2%;
-                width: 80%; // Ensure the logo resizes but remains visible
-                min-width: 40%;
-            }
-        }
-  
-      .selection-container {
-        margin-left: 0;
-        display: flex;
-        margin-right: 8%;
-        gap: 5%; // Reduced gap between the navigation items
-        font-size: 1rem; // Reduced font size
-        justify-content: space-between;
-        // flex-shrink: 1; // Allow the container to shrink as needed
-      }
-  
-      a {
-        font-size: 1rem; // Reduced font size for links
-        white-space: nowrap; // Prevent wrapping of link text
-        // flex-shrink: 1; // Allow link text to shrink if necessary
-      }
-    }
-    }
-    .black-header {
-        width: 100%;
-        align-items: center;
-        
-        margin: 0;
-        .container {
-          
-            padding: 0% 5%;
-            .logo-container {
-                margin: 0;
-                // flex-shrink: 0; // Prevent the logo from shrinking too much
-                img {
-                    margin-top: 2%;
-                    width: 80%; // Ensure the logo resizes but remains visible
-                    min-width: 40%;
-                }
-            }
-      
-          .selection-container {
-            margin-left: 0;
-            padding-left: 0%;
-            display: flex;
-            margin-right: 0%;
-            gap: 5%; // Reduced gap between the navigation items
-            font-size: 1rem; // Reduced font size
-            justify-content: space-between;
-            // flex-shrink: 1; // Allow the container to shrink as needed
-          }
-      
-          a {
-            font-size: 1rem; // Reduced font size for links
-            white-space: nowrap; // Prevent wrapping of link text
-            // flex-shrink: 1; // Allow link text to shrink if necessary
-          }
-        }
-    }
-    
-
-}
-@media (max-width: 450px) {
-    .black-header, .header {
-        .container {
-            a {
-                font-size: 0.9rem;
-            }
-        }
-    }
-}
-
-.header {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    z-index: 100;
-}
-
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 18% 0 18%;
-
-    .logo-container {
-        img {
-            width: 75%;
+        img:hover {
+            cursor: pointer;
         }
     }
 
@@ -225,7 +229,13 @@
         text-decoration: none;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         white-space: nowrap;
+        transition: 0.25s;
     }
+
+    a:hover {
+        color: orange;
+    }
+
 }
 
 .black-header {
@@ -241,11 +251,22 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 0 0 5%;
+        height: 100%;
+        width: auto;
+
+        padding: 0 5% 0 5%;
 
         .logo-container {
+            display: flex;
+            justify-content: center;
+
             img {
-                width: 65%;
+                width: 57%;
+            }
+
+
+            img:hover {
+                cursor: pointer;
             }
         }
 
@@ -263,7 +284,15 @@
             color: white;
             text-decoration: none;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            transition: 0.15s;
         }
+
+        @media (hover: hover) and (pointer: fine) {
+            .selection-container a:hover{
+               color: orange;
+            }
+        }
+
     }
 }
 
@@ -272,17 +301,20 @@
     top: 0;
 }
 
+
+
 @media (max-width: 850px) {
     .header {
         width: 100%;
         align-items: center;
         margin: 0;
-        
+
         .container {
             padding: 0 8%;
 
             .logo-container {
                 margin: 0;
+
                 img {
                     margin-top: 2%;
                     width: 80%;
@@ -316,6 +348,7 @@
 
             .logo-container {
                 margin: 0;
+
                 img {
                     margin-top: 2%;
                     width: 80%;
@@ -342,7 +375,9 @@
 }
 
 @media (max-width: 450px) {
-    .black-header, .header {
+
+    .black-header,
+    .header {
         .container {
             a {
                 font-size: 0.9rem;
@@ -351,21 +386,21 @@
     }
 }
 
-@media (max-height: 950px) {
-    .header, .black-header {
-        .container {
-            padding-top: 20px;   /* Add more padding on top */
-            padding-bottom: 20px; /* Add more padding on bottom */
+// @media (max-height: 950px) {
+//     .header, .black-header {
+//         .container {
+//             padding-top: 20px;   /* Add more padding on top */
+//             padding-bottom: 20px; /* Add more padding on bottom */
 
-            .logo-container img {
-                margin-top: 10px; /* Add more margin to the logo */
-                margin-bottom: 10px; /* Add more margin below the logo */
-            }
+//             .logo-container img {
+//                 margin-top: 10px; /* Add more margin to the logo */
+//                 margin-bottom: 10px; /* Add more margin below the logo */
+//             }
 
-            .selection-container {
-                padding-bottom: 10px; /* Add more padding below the navigation */
-                padding-top: 10px; /* Add more padding above the navigation */
-            }
-        }
-    }
-}
+//             .selection-container {
+//                 padding-bottom: 10px; /* Add more padding below the navigation */
+//                 padding-top: 10px; /* Add more padding above the navigation */
+//             }
+//         }
+//     }
+// }
