@@ -243,10 +243,10 @@ export class FourthSectionComponent implements AfterViewInit, OnDestroy {
           let tl = gsap.timeline({
             scrollTrigger: {
               trigger: ".trigger",
-              start: () => `top+=${i * window.innerHeight} top`,
+              start: () => `top+=${i * window.innerHeight} 35%`,
               end: () => `top+=${(i + 1) * window.innerHeight} top`,
               scrub: true,
-              markers: false
+              // markers: true
             }
           });
 
