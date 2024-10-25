@@ -5,8 +5,8 @@
             <p>Drop us your email, and we’ll be in touch and we’ll reach out shortly.</p>
         </div>
         <div class="contact-email-bar">
-            <input type="email" placeholder="Email Address" class="contact-input" />
-            <button class="contact-send-btn">Send</button>
+            <input [(ngModel)]="email" type="email" [placeholder]="placeholderText" class="contact-input" (keydown.enter)="sendEmail()"/>
+            <button (click)="sendEmail()" class="contact-send-btn">Send</button>
         </div>        
     </div>
 
@@ -18,7 +18,7 @@
 
         <div class="info-container">
             <h3>
-                customerservice&#64;solarpulse.com.my<br><br>+603 8888 0000<br><br>3A-1C, 3A Floor, Tower 2 &#64; PFCC, <br>Jalan Puteri 1/2, Bandar Puteri, <br>47100 Puchong, Selangor.
+                customerservice&#64;solarpulse.tech<br><br>+603 8068 9060<br><br>3A-1C, 3A Floor, Tower 2 &#64; PFCC, <br>Jalan Puteri 1/2, Bandar Puteri, <br>47100 Puchong, Selangor.
             </h3>
             <div class="social-icons">
                 <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">

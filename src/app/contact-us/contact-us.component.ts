@@ -1,16 +1,50 @@
 import { Component } from '@angular/core';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [],  // Import RouterModule for routing functionality
+  imports: [FormsModule, HttpClientModule],  // Import RouterModule for routing functionality
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.scss'
 })
-export class ContactUsComponent {}
+export class ContactUsComponent {
+  email: string = '';
+  placeholderText: string = 'Email Address';  // Default placeholder text
+
+
+  constructor(private http: HttpClient) { }
+
+  sendEmail() {
+    if (this.email) {
+      // Send a request to the backend to send an email
+      this.http.post('http://localhost:3000/send-email', { email: this.email }).subscribe(
+        (response) => {
+          console.log('Email sent successfully!', response);
+
+          //clear input
+          this.email = '';
+
+          //set placeholder to indicate success
+          this.placeholderText = 'Email sent successfully';
+
+          //set timeout for 1 seconds, then revert back to default placeholder
+          setTimeout(() => {
+            this.placeholderText = 'Email Address';
+          }, 2000);
+        },
+        (error) => {
+          console.log('Error sending email:', error);
+        }
+      );
+    } else {
+      alert('Please enter a valid email address.');
+    }
+  }
+}
 
 
 
@@ -23,7 +57,7 @@ export class ContactUsComponent {}
 // @Component({
 //   selector: 'app-contact-us',
 //   standalone: true,
-//   imports: [RouterModule, CommonModule],  
+//   imports: [RouterModule, CommonModule],
 //   templateUrl: './contact-us.component.html',
 //   styleUrls: ['./contact-us.component.scss']
 // })
