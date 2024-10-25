@@ -48,6 +48,18 @@ export class AppComponent {
   onWindowScroll() {
     const yOffset = window.pageYOffset || document.documentElement.scrollTop;
     this.showScrollToTop = yOffset > 300; // Show when user scrolls down 300px
+
+    const scrollToTopButton = document.querySelector(".scroll-to-top");
+    if (scrollToTopButton){
+      if (this.showScrollToTop){
+        scrollToTopButton.classList.add('show');
+        scrollToTopButton.classList.remove('hide');
+      }
+      else{
+        scrollToTopButton.classList.add('hide');
+        scrollToTopButton.classList.remove('show');
+      }
+    }
   }
 
   // Scroll to top method
