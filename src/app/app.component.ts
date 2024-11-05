@@ -12,13 +12,14 @@ import { ContactUsComponent } from "./contact-us/contact-us.component";
 import { TermsComponent } from './terms/terms.component';
 import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.component";
 import { HomeSecondComponent } from "./home-second/home-second.component";
+import { VideoComponent } from "./video/video.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf, HeaderComponent, HomeComponent, SecondSectionComponent, 
+  imports: [RouterOutlet, NgIf, HeaderComponent, HomeComponent, SecondSectionComponent,
     AboutUsComponent, ThirdSectionComponent, FourthSectionComponent, ContactUsComponent, AboutUsComponent,
-    TermsComponent, PrivacyPolicyComponent, HomeSecondComponent],
+    TermsComponent, PrivacyPolicyComponent, HomeSecondComponent, VideoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
