@@ -1,36 +1,51 @@
 <div class="background-color">
-    <div class="video-container">
+    <div class="video-container" (mouseenter)="showControlsAndDim()" (mouseleave)="hideControlsAndRestore()">
         <div (click)="toggleVideo()" #startButton class="start-button">
             <img src="assets/play.svg" id="start-play">
         </div>
 
-        <!-- <div (click)="playPause()" #buttons class="buttons">
-            <img src="assets/play.svg" id="bigPlay">
-            <img src="assets/pause.svg" id="bigPause">
-        </div> -->
+
+
 
         <video #myVideo src="assets/video/video.mp4" id="myVideo" poster="assets/videoPoster1.png"> </video>
+
+        <div (click)="playPause()" #buttons class="buttons">
+            <img src="assets/play.svg" id="bigPlay" #bigPlay>
+            <img src="assets/pause.svg" id="bigPause" #bigPause>
+        </div>
+
         <div #controls class="controls">
             <div (click)="playPause()" #playPauseButtons class="play-pause">
-                <img src="assets/pause.svg" id="pause">
-                <!-- <img src="assets/play.svg" id="play"> -->
+                <img src="assets/pause.svg" id="pause" #pause>
+                <img src="assets/play.svg" id="play" #play>
             </div>
 
-            <div class="volume-buttons-img"(mouseenter)="showVolumeSlider()" (mouseleave)="hideVolumeSlider()">
-                <div class="volumeButtons" >
+            <div class="volume-buttons-img" (mouseenter)="showVolumeSlider()" (mouseleave)="hideVolumeSlider()">
+                <div class="volumeButtons">
                     <img src="assets/volume.svg" id="max-volume">
                     <img src="assets/muted.svg" id="muted">
                 </div>
-                <div class="volume-slider-container">
-                    <input (mouseenter)="showVolumeSlider()" type="range" min="0"
-                        max="100" value="100" #volumeSlider class="volume">
+                <div class="volume-slider-container" [ngClass]="{'visible': isVolumeSliderVisible}">
+                    <input (mouseenter)="showVolumeSlider()" type="range" min="0" max="100" value="100" #volumeSlider
+                        class="volume">
                 </div>
             </div>
 
-            <!-- <div class="fullscreen-container">
-                <img src="assets/fullscreen.svg" id="fullscreen">
-            </div> -->
-        </div>
+            <div class="progress-container">
+                <div class="timestamp-container">
+                    <span #currentTimeDisplay class="timestamp">0.00</span> / <span #durationDisplay
+                        class="timestamp">0.00</span>
+                </div>
+                <input type="range" #progressBar min="0" max="100" value="0" (input)="onSeek($event)"
+                    class="progress-bar">
+            </div>
 
+
+        </div>
     </div>
 </div>
+
+
+<!-- <div class="fullscreen-container">
+                <img src="assets/fullscreen.svg" id="fullscreen">
+            </div> -->
