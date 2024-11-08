@@ -119,6 +119,7 @@ export class VideoComponent implements AfterViewInit {
 
       this.startButton.nativeElement.style.display = "none";
       this.buttons.nativeElement.style.display = "flex";
+      this.controls.nativeElement.style.display = "flex";
       this.firstTimeClicking = true;
     }
     this.playPause(); // Use playPause method for consistency
