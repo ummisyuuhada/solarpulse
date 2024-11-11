@@ -123,10 +123,11 @@
 //   }
 // }
 
-import { Component, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import { isPlatformBrowser } from '@angular/common';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -138,45 +139,58 @@ gsap.registerPlugin(ScrollTrigger);
   styleUrls: ['./about-us.component.scss']
 })
 export class AboutUsComponent implements AfterViewInit, OnInit, OnDestroy {
-
+  isBrowser: boolean;
   isMobile: boolean = false;
   resizeHandler: any;
   resizeTimeout: any;
-  private aboutScrollTriggers: ScrollTrigger[] = []; // Keep track of ScrollTriggers for this component
+  private aboutScrollTriggers: ScrollTrigger[] = [];
 
-  ngOnInit(): void {
-    const mediaQuery = window.matchMedia('(max-width: 815px)');
-    this.isMobile = mediaQuery.matches;
-
-    mediaQuery.addEventListener('change', (e) => {
-      this.isMobile = e.matches;
-    });
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  resetImages(images: HTMLElement[]): void {
-    images.forEach((image, index) => {
-      gsap.set(image, { opacity: index === 0 ? 1 : 0 });
-    });
+  ngOnInit(): void {
+    if (this.isBrowser) {
+      const mediaQuery = window.matchMedia('(max-width: 815px)');
+      this.isMobile = mediaQuery.matches;
+
+      mediaQuery.addEventListener('change', (e) => {
+        this.isMobile = e.matches;
+      });
+    }
   }
 
   ngAfterViewInit(): void {
+    if (this.isBrowser) {
+      this.setupResponsiveHandlers();
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.isBrowser) {
+      if (this.resizeHandler) {
+        window.removeEventListener('resize', this.resizeHandler);
+      }
+      this.aboutScrollTriggers.forEach(trigger => trigger.kill());
+    }
+  }
+
+  setupResponsiveHandlers(): void {
     const handleMediaQuery = () => {
       const mediaQuery = window.matchMedia('(max-width: 815px)');
       const images = gsap.utils.toArray('.about-image') as HTMLElement[];
 
-      // Remove ScrollTriggers specific to this component before recalculating
-      this.aboutScrollTriggers.forEach(trigger => trigger.kill());  
+      this.aboutScrollTriggers.forEach(trigger => trigger.kill());
       this.aboutScrollTriggers = [];
 
       if (!mediaQuery.matches) {
         this.resetImages(images);
-        this.setupScrollTriggerAnimations(images);  // Only desktop view
+        this.setupDesktopAnimations(images);
       } else {
-        this.setupMobileObserver();
-        this.resetMobileImages(images);  // Only mobile view
+        this.setupMobileAnimations();
       }
 
-      setTimeout(() => ScrollTrigger.refresh(), 300); // Adjust timing for the refresh
+      setTimeout(() => ScrollTrigger.refresh(), 300);
     };
 
     handleMediaQuery();
@@ -191,69 +205,41 @@ export class AboutUsComponent implements AfterViewInit, OnInit, OnDestroy {
     window.addEventListener('resize', this.resizeHandler);
   }
 
-  // ScrollTrigger animation logic for desktop view
-  setupScrollTriggerAnimations(images: HTMLElement[]): void {
-    const textsTransition = gsap.utils.toArray('.about-text-container:nth-child(n+2)') as HTMLElement[];
-
-    // Main ScrollTrigger for pinning the image container
-    const pinTrigger = ScrollTrigger.create({
-      trigger: '.about-trigger',
-      pin: '.about-image-container',
-      start: 'top top',
-      end: 'bottom bottom',
-      endTrigger: '.about-container',
-      scrub: true, // Smooth scrolling
-      // markers: true,
-      invalidateOnRefresh: true // Ensures the trigger recalculates properly on refresh
+  resetImages(images: HTMLElement[]): void {
+    images.forEach((image, index) => {
+      gsap.set(image, { opacity: index === 0 ? 1 : 0 });
     });
-    this.aboutScrollTriggers.push(pinTrigger);
+  }
+
+  setupDesktopAnimations(images: HTMLElement[]): void {
+    const textsTransition = gsap.utils.toArray('.about-text-container:nth-child(n+2)') as HTMLElement[];
 
     images.forEach((image, i) => {
       if (i === 0) return;
 
-      const fadeOutTrigger = gsap.to(images[i - 1], {
-        opacity: 0,
-        duration: 0.5,
-        scrollTrigger: {
+      this.aboutScrollTriggers.push(
+        ScrollTrigger.create({
           trigger: textsTransition[i - 1],
-          start: 'top +=50%',
-          toggleActions: 'play none none reverse',
-          markers: false
-        }
-      }).scrollTrigger!;
-      this.aboutScrollTriggers.push(fadeOutTrigger);
-
-      const fadeInTrigger = gsap.to(image, {
-        opacity: 1,
-        duration: 0.5,
-        scrollTrigger: {
-          trigger: textsTransition[i - 1],
-          start: 'top +=50%',
-          toggleActions: 'play none none reverse',
-          markers: false
-        }
-      }).scrollTrigger!;
-      this.aboutScrollTriggers.push(fadeInTrigger);
+          start: 'top center+=100',
+          onEnter: () => gsap.to(image, { opacity: 1, duration: 0.5 }),
+          onLeaveBack: () => gsap.to(image, { opacity: 0, duration: 0.5 })
+        })
+      );
     });
 
-    gsap.set(textsTransition, { opacity: 0 });
-
-    textsTransition.forEach((text) => {
-      const textFadeInTrigger = gsap.to(text, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: text,
-          start: 'top +=55%',
-          end: 'bottom bottom',
-          scrub: true,
-          markers: false
-        }
-      }).scrollTrigger!;
-      this.aboutScrollTriggers.push(textFadeInTrigger);
+    gsap.to(textsTransition, {
+      scrollTrigger: {
+        trigger: textsTransition,
+        start: 'top center+=100',
+        toggleActions: 'play none none none',
+        markers: false
+      },
+      opacity: 1,
+      duration: 0.5
     });
   }
 
-  setupMobileObserver(): void {
+  setupMobileAnimations(): void {
     const titles = document.querySelectorAll('.title');
     const descriptions = document.querySelectorAll('.description');
 
@@ -268,18 +254,5 @@ export class AboutUsComponent implements AfterViewInit, OnInit, OnDestroy {
 
     titles.forEach(title => observer.observe(title));
     descriptions.forEach(description => observer.observe(description));
-  }
-
-  resetMobileImages(images: HTMLElement[]): void {
-    images.forEach(image => {
-      gsap.set(image, { opacity: 1 });
-    });
-  }
-
-  ngOnDestroy(): void {
-    if (this.resizeHandler) {
-      window.removeEventListener('resize', this.resizeHandler);
-    }
-    this.aboutScrollTriggers.forEach(trigger => trigger.kill());  // Ensure all ScrollTriggers are killed on destroy
   }
 }

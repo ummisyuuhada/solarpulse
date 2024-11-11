@@ -158,8 +158,9 @@
 
 
 // MAMAMIA IT WORKED
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
-import { gsap } from 'gsap';
+import { Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -171,97 +172,81 @@ gsap.registerPlugin(ScrollTrigger);
   styleUrls: ['./second-section.component.scss']
 })
 export class SecondSectionComponent implements AfterViewInit, OnDestroy {
+  private isBrowser: boolean = false;
   private resizeHandler: (() => void) | undefined = undefined;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
+
   ngAfterViewInit(): void {
-    // Handle media query and scroll animations
-    this.handleMediaQuery();
+    if (this.isBrowser) {  // Ensures that browser-specific code runs only on the client side
+      this.handleMediaQuery();
+      this.setupFadeInFadeOutEffects();
 
-    // Setup resize handler
-    this.resizeHandler = () => {
-      ScrollTrigger.refresh();  // Refresh ScrollTrigger on resize
-      this.handleMediaQuery();  // Re-evaluate media queries
-    };
-    window.addEventListener('resize', this.resizeHandler);
-
-    // TEXTS FADE IN FADE OUT FUNCTIONS
-    this.setupFadeInFadeOutEffects();
+      // Setup resize handler
+      this.resizeHandler = () => {
+        ScrollTrigger.refresh();
+        this.handleMediaQuery();
+      };
+      window.addEventListener('resize', this.resizeHandler);
+    }
   }
 
   handleMediaQuery(): void {
     const mediaQuery1200 = window.matchMedia("(max-width: 1200px)");
     const mediaQuery850 = window.matchMedia("(max-width: 850px)");
 
-    // Clear previous ScrollTriggers to avoid conflicts
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
     if (mediaQuery1200.matches || mediaQuery850.matches) {
-      // For mobile view (<=1000px), skip horizontal scrolling animations
-      return;
+      return;  // Skip animations for small screens
     } else {
-      // GSAP horizontal scroll animation for non-mobile screens
-      const containers = gsap.utils.toArray('.second-container') as HTMLElement[];
-
-      containers.forEach((container) => {
-        const sections = container.querySelectorAll('.panel');
-
-        // Calculate the total width for proper horizontal scrolling
-        let totalWidth = 0;
-        sections.forEach((section) => {
-          totalWidth += section.clientWidth;
-        });
-
-        // Apply GSAP horizontal scrolling
-        gsap.to(sections, {
-          xPercent: -100 * (sections.length - 1),
-          ease: 'none',
-          scrollTrigger: {
-            trigger: container,
-            pin: true,
-            scrub: 1,
-            start: 'top top',
-            end: `+=${totalWidth * 0.5}px`,  // Dynamic end based on content width
-            invalidateOnRefresh: true,  // Refresh on resize to adjust correctly
-          }
-        });
-      });
+      this.setupAnimations();
     }
+  }
+
+  setupAnimations(): void {
+    const containers = gsap.utils.toArray('.second-container') as HTMLElement[];
+
+    containers.forEach((container) => {
+      const sections = container.querySelectorAll('.panel');
+      let totalWidth = 0;
+      sections.forEach(section => { totalWidth += section.clientWidth; });
+
+      gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: container,
+          pin: true,
+          scrub: 1,
+          start: 'top top',
+          end: () => `+=${totalWidth}`,
+          invalidateOnRefresh: true
+        }
+      });
+    });
   }
 
   setupFadeInFadeOutEffects(): void {
-    // Elements to observe for fade in/out effects
-    const backgroundImg = document.querySelectorAll(".tab-image");
-    const thirdSectionImages = document.querySelectorAll(".tab-overlay");
-    const textSections = document.querySelectorAll(".content-section");
-
-    // IntersectionObserver to trigger fade in/out effects
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         entry.target.classList.toggle("show", entry.isIntersecting);
-        if (entry.isIntersecting) {
-          observer.unobserve(entry.target);  // Stop observing once it fades in
-        }
+        if (entry.isIntersecting) observer.unobserve(entry.target);
       });
     }, { threshold: 0.5 });
 
-    // Apply observer to images and text sections
-    backgroundImg.forEach(img => observer.observe(img));
-    thirdSectionImages.forEach((thirdSectionImage, index) => {
-      const img = thirdSectionImage as HTMLElement;
-      observer.observe(img);
-
-      // Add delay effect for fade in/out
-      const delay = 0.4 + (index % 2) * 0.3;
-      img.style.transitionDelay = `${delay}s`;
-    });
-    textSections.forEach(textSection => observer.observe(textSection));
+    const images = document.querySelectorAll(".tab-image, .tab-overlay, .content-section");
+    images.forEach(img => observer.observe(img));
   }
 
   ngOnDestroy(): void {
-    // Clean up: Remove resize event listener and ScrollTrigger instances
-    if (this.resizeHandler) {
-      window.removeEventListener('resize', this.resizeHandler);
+    if (this.isBrowser) {
+      if (this.resizeHandler) {
+        window.removeEventListener('resize', this.resizeHandler);
+      }
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     }
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   }
 }

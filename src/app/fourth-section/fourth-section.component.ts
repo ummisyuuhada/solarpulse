@@ -185,7 +185,8 @@
 
 // }
 
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
@@ -196,84 +197,79 @@ gsap.registerPlugin(ScrollTrigger);
   standalone: true,
   imports: [],
   templateUrl: './fourth-section.component.html',
-  styleUrl: './fourth-section.component.scss'
+  styleUrls: ['./fourth-section.component.scss']
 })
-
 export class FourthSectionComponent implements AfterViewInit, OnDestroy {
+  isBrowser: boolean;
+  private handleResize!: () => void;
 
-  private resizeHandler: (() => void) | undefined = undefined;
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   ngAfterViewInit(): void {
-
-    const handleMediaQuery = () => {
-      const mediaQuery1000 = window.matchMedia("(max-width: 1000px)");
-      const mediaQuery850 = window.matchMedia("(max-width: 850px)");
-
-      // Remove animations for small screens
-      if (mediaQuery1000.matches || mediaQuery850.matches) {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-
-        // Apply any layout changes or styles specific to smaller screens here
-        document.querySelectorAll('.image-container, .info-section').forEach(el => {
-          el.setAttribute('style', 'opacity: 1; transform: translateY(0);'); // Reset styles for small screens
-        });
-
-        return;
-      } else {
-        // Refresh ScrollTrigger to ensure the correct states on resize
+    if (this.isBrowser) {
+      this.setupAnimations();
+      this.handleResize = () => {
         ScrollTrigger.refresh();
-
-        ScrollTrigger.create({
-          trigger: ".trigger",
-          pin: ".sub-section-container",
-          start: "top top",
-          end: "bottom bottom",
-          pinSpacing: false,
-          markers: false
-        });
-
-        let images = gsap.utils.toArray(".image-container") as HTMLElement[];
-        let texts = gsap.utils.toArray(".info-section") as HTMLElement[];
-
-        gsap.set(images, { opacity: 0, y: 50 });
-        gsap.set(texts, { opacity: 0, y: 50 });
-
-        // Ensure animation for each section
-        images.forEach((image, i) => {
-          let tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: ".trigger",
-              start: () => `top+=${i * window.innerHeight} 35%`,
-              end: () => `top+=${(i + 1) * window.innerHeight} top`,
-              scrub: true,
-              // markers: true
-            }
-          });
-
-          tl.to(image, { opacity: 1, y: 0 }, "+=0")
-            .to(texts[i], { opacity: 1, y: 0 }, "+=0")
-            .to([image, texts[i]], { opacity: 0, y: -50 }, "+=1")
-        });
-      }
-    };
-
-    // Call handleMediaQuery to handle animations based on screen size
-    handleMediaQuery();
-
-    // Listen to resize events
-    this.resizeHandler = () => {
-      ScrollTrigger.refresh();  // Refresh ScrollTrigger
-      handleMediaQuery();       // Re-evaluate media queries and animations
-    };
-
-    window.addEventListener("resize", this.resizeHandler);
+        this.handleMediaQuery();
+      };
+      window.addEventListener('resize', this.handleResize);
+    }
   }
 
   ngOnDestroy(): void {
-    // Clean up event listeners and ScrollTrigger instances on component destruction
-    if (this.resizeHandler) {
-      window.removeEventListener('resize', this.resizeHandler);
+    if (this.isBrowser) {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      window.removeEventListener('resize', this.handleResize);
     }
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  }
+
+  private handleMediaQuery(): void {
+    const mediaQuery1000 = window.matchMedia("(max-width: 1000px)");
+    const mediaQuery850 = window.matchMedia("(max-width: 850px)");
+
+    if (mediaQuery1000.matches || mediaQuery850.matches) {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      document.querySelectorAll('.image-container, .info-section').forEach(el => {
+        el.setAttribute('style', 'opacity: 1; transform: translateY(0);');
+      });
+      return;
+    }
+
+    ScrollTrigger.create({
+      trigger: ".trigger",
+      pin: ".sub-section-container",
+      start: "top top",
+      end: "bottom bottom",
+      pinSpacing: false,
+      markers: false
+    });
+
+    const images = gsap.utils.toArray<HTMLElement>(".image-container");
+    const texts = gsap.utils.toArray<HTMLElement>(".info-section");
+
+    gsap.set(images, { opacity: 0, y: 50 });
+    gsap.set(texts, { opacity: 0, y: 50 });
+
+    images.forEach((image, i) => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".trigger",
+          start: () => `top+=${i * window.innerHeight} top`,
+          end: () => `top+=${(i + 1) * window.innerHeight} top`,
+          scrub: true,
+          markers: false
+        }
+      });
+
+      tl.to(image, { opacity: 1, y: 0 }, "+=0")
+        .to(texts[i], { opacity: 1, y: 0 }, "+=0")
+        .to([image, texts[i]], { opacity: 0, y: -50 }, "+=1");
+    });
+  }
+
+  private setupAnimations(): void {
+    this.handleMediaQuery();
   }
 }

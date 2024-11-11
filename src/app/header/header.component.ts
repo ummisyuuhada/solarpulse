@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import gsap from 'gsap';
@@ -18,11 +19,12 @@ gsap.registerPlugin(ScrollTrigger);
 export class HeaderComponent {
 
   previousUrl: string = '';
-  constructor(private router: Router) { }
+  constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
-
-    this.setupScrollListener();
+    if (isPlatformBrowser(this.platformId)) {
+      this.setupScrollListener();
+    }
     // window.addEventListener('scroll', this.toggleShowClass);
 
     this.router.events.pipe(
@@ -44,10 +46,10 @@ export class HeaderComponent {
     const header = document.querySelector('.black-header');
     window.addEventListener('scroll', () => {
       const scrollPosition = window.scrollY || document.documentElement.scrollTop;
-      if (scrollPosition > 400) { // 500px scroll threshold
-        header?.classList.add('show'); // Add the class when scrolled down
+      if (scrollPosition > 400) {
+        header?.classList.add('show');
       } else {
-        header?.classList.remove('show'); // Remove the class when scrolled back up
+        header?.classList.remove('show');
       }
     });
   }
@@ -127,11 +129,7 @@ export class HeaderComponent {
       window.location.href = '/';
     }
   }
-  
-  
-  
 }
-
 
 // toggleShowClass() {
 //   const header = document.querySelector(".black-header");
